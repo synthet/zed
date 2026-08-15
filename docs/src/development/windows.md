@@ -11,13 +11,35 @@ description: "Guide to building zed for windows for Zed development."
 
 Clone the [Zed repository](https://github.com/zed-industries/zed).
 
+## Build scripts
+
+You can install dependencies and build Zed with the PowerShell scripts in `script/`. They initialize the MSVC developer environment, so you do not need to open a Developer PowerShell window first.
+
+```powershell
+# One-time / missing tools (add -InstallDeps to let winget install CMake / Build Tools)
+script/windows.ps1
+
+# Debug build; re-run the same command to resume after a failure
+script/build-windows.ps1
+
+script/build-windows.ps1 -Release
+script/build-windows.ps1 -Resume
+script/build-windows.ps1 -Run
+```
+
+`script/build-windows.ps1` records completed setup steps in `target/.build-windows-state.json`. Re-running it after a crash, out-of-memory error, or closed terminal restores the VS environment, skips finished setup steps, and continues the Cargo build. It does not run `cargo clean` unless you pass `-Clean`.
+
+The rest of this page describes the same dependencies and `cargo` commands if you prefer to set things up by hand.
+
 ## Dependencies
+
+You can install or verify these tools with `script/windows.ps1` (pass `-InstallDeps` to let winget install CMake and Visual Studio Build Tools). To install them manually:
 
 - Install [rustup](https://www.rust-lang.org/tools/install)
 
 - Install either [Visual Studio](https://visualstudio.microsoft.com/downloads/) with the optional components `MSVC v*** - VS YYYY C++ x64/x86 build tools` and `MSVC v*** - VS YYYY C++ x64/x86 Spectre-mitigated libs (latest)` (`v***` is your VS version and `YYYY` is the release year. Adjust architecture as needed).
 - Or, if you prefer a slimmer installation, install only the [Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) (plus the libs above) and the "Desktop development with C++" workload.
-  This setup is not picked up automatically by rustup. Before compiling, initialize environment variables by launching the developer shell (cmd/PowerShell) installed in the Start menu or Windows Terminal.
+  This setup is not picked up automatically by rustup. Before compiling, initialize environment variables by launching the developer shell (cmd/PowerShell) installed in the Start menu or Windows Terminal. `script/build-windows.ps1` does this for you.
 - Install the Windows 11 or 10 SDK for your system, and make sure at least `Windows 10 SDK version 2104 (10.0.20348.0)` is installed. You can download it from the [Windows SDK Archive](https://developer.microsoft.com/windows/downloads/windows-sdk/).
 - Install [CMake](https://cmake.org/download) (required by [a dependency](https://docs.rs/wasmtime-c-api-impl/latest/wasmtime_c_api/)). Or you can install it through Visual Studio Installer, then manually add the `bin` directory to your `PATH`, for example: `C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin`.
 
@@ -95,7 +117,7 @@ After this, restart the `postgresql` service. Press `Win`+`R` to open the Run di
 
 ## Building from source
 
-Once you have the dependencies installed, you can build Zed using [Cargo](https://doc.rust-lang.org/cargo/).
+Once you have the dependencies installed, you can build Zed with `script/build-windows.ps1`, or directly with [Cargo](https://doc.rust-lang.org/cargo/).
 
 For a debug build:
 
