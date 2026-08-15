@@ -139,6 +139,31 @@ cargo test --workspace
 
 > **Note:** Visual regression tests are currently macOS-only and require Screen Recording permission. See [Building Zed for macOS](./macos.md#visual-regression-tests) for details.
 
+## Deploying a local build {#deploying-a-local-build}
+
+Use `cargo run` or `script/build-windows.ps1` for the inner development
+loop. To overlay a release build onto the existing per-user install at
+`%LOCALAPPDATA%\Programs\Zed` (Start Menu, `zed` on PATH, and `zed://`):
+
+```powershell
+script/deploy-windows.ps1
+script/deploy-windows.ps1 -NoBuild
+script/deploy-windows.ps1 -Launch
+script/deploy-windows.ps1 -WhatIf
+```
+
+You can also double-click `script/deploy-windows.cmd`.
+
+The script replaces `Zed.exe`, `bin\zed.exe`, and
+`tools\auto_update_helper.exe`. It leaves the official uninstaller and
+Explorer Appx package in place, and reuses ConPTY / AGS DLLs already in
+that folder.
+
+On first run it copies the current install to
+`%LOCALAPPDATA%\Programs\Zed.official-backup` and pins the winget
+package `ZedIndustries.Zed` so `winget upgrade` cannot restore the
+upstream binary.
+
 ## Installing from msys2
 
 Zed does not support unofficial MSYS2 Zed packages built for Mingw-w64. Please report any issues you may have with [mingw-w64-zed](https://packages.msys2.org/base/mingw-w64-zed) to [msys2/MINGW-packages/issues](https://github.com/msys2/MINGW-packages/issues?q=is%3Aissue+is%3Aopen+zed).

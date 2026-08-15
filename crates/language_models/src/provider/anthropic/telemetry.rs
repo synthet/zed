@@ -1,9 +1,7 @@
-use anthropic::ANTHROPIC_API_URL;
-use anyhow::{Context as _, anyhow};
+use anyhow;
 use gpui::BackgroundExecutor;
-use http_client::{AsyncBody, HttpClient, Method, Request as HttpRequest};
+use http_client::HttpClient;
 use language_model::{ANTHROPIC_PROVIDER_ID, LanguageModel};
-use std::env;
 use std::sync::Arc;
 use util::ResultExt;
 
@@ -31,6 +29,7 @@ pub enum AnthropicEventType {
 }
 
 impl AnthropicCompletionType {
+    #[allow(dead_code)]
     fn as_str(&self) -> &'static str {
         match self {
             Self::Editor => "natural_language_completion_in_editor",
@@ -41,6 +40,7 @@ impl AnthropicCompletionType {
 }
 
 impl AnthropicEventType {
+    #[allow(dead_code)]
     fn as_str(&self) -> &'static str {
         match self {
             Self::Invoked => "invoke",
@@ -95,42 +95,10 @@ impl AnthropicEventReporter {
 }
 
 async fn send_anthropic_event(
-    event: AnthropicEventData,
-    client: Arc<dyn HttpClient>,
-    api_key: String,
+    _event: AnthropicEventData,
+    _client: Arc<dyn HttpClient>,
+    _api_key: String,
 ) -> anyhow::Result<()> {
-    let uri = format!("{ANTHROPIC_API_URL}/v1/log/zed");
-    let request_builder = HttpRequest::builder()
-        .method(Method::POST)
-        .uri(uri)
-        .header("X-Api-Key", api_key)
-        .header("Content-Type", "application/json");
-
-    let serialized_event = serde_json::json!({
-        "completion_type": event.completion_type.as_str(),
-        "event": event.event.as_str(),
-        "metadata": {
-            "language_name": event.language_name,
-            "message_id": event.message_id,
-            "platform": env::consts::OS,
-        }
-    });
-
-    let request = request_builder
-        .body(AsyncBody::from(serialized_event.to_string()))
-        .context("Failed to construct Anthropic telemetry HTTP request body")?;
-
-    let response = client
-        .send(request)
-        .await
-        .context("Failed to send telemetry HTTP request to Anthropic")?;
-
-    if response.status().is_success() {
-        Ok(())
-    } else {
-        Err(anyhow!(
-            "Anthropic telemetry logging failed with HTTP status: {}",
-            response.status()
-        ))
-    }
+    // Synth Zed: do not send Anthropic telemetry.
+    Ok(())
 }

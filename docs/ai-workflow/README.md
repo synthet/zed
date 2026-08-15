@@ -30,6 +30,11 @@ okf_version: 0.1
 **Single source of truth:** edit assets under `.claude/` + `.agent/`, then run
 `python scripts/sync_assistant_trees.py` to regenerate the Cursor and Codex mirrors.
 
+Zed Agent always-on rules are repo-root [`.rules`](../../.rules), not `.claude/rules/`. After
+synthet-code-framework adopt, `AGENTS.md` / `CLAUDE.md` are full guides and `GEMINI.md` stays a
+`.rules` pointer — see [agent-instruction-files.md](../technical/agent-instruction-files.md).
+Install common-skills globally (`~/.agents/skills`); in-repo `.agents/skills` is a generated mirror.
+
 ## CLI tooling skills
 
 Thirteen skills under `.claude/skills/` cover agent-safe CLI usage (see [`.agent/cli-tools-skills-spec.md`](../../.agent/cli-tools-skills-spec.md)):

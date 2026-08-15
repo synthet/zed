@@ -4,7 +4,7 @@ title: Canonical Sources
 description: Authority map — the single source of truth for each contract, convention, and config in this project.
 resource: CANONICAL_SOURCES.md
 tags: [docs, governance, authority]
-timestamp: 2026-06-16T00:00:00Z
+timestamp: 2026-08-15T17:45:00Z
 okf_version: 0.1
 ---
 
@@ -20,14 +20,17 @@ question.
 | Cursor / Codex engineering guide | [`../AGENTS.md`](../AGENTS.md) |
 | Claude orientation | [`../CLAUDE.md`](../CLAUDE.md) |
 | Gemini CLI | [`../GEMINI.md`](../GEMINI.md) → `.rules` |
+| Instruction-file split (adopt) | [`technical/agent-instruction-files.md`](technical/agent-instruction-files.md) |
 | Public API shape | Extension API under [`../crates/extension_api`](../crates/extension_api); user-facing settings in [`src/reference/all-settings.md`](src/reference/all-settings.md) |
 | Data model / schema | Settings store [`../crates/settings/src/settings.rs`](../crates/settings/src/settings.rs); content [`../crates/settings_content/src/settings_content.rs`](../crates/settings_content/src/settings_content.rs) |
 | Config keys | [`src/reference/all-settings.md`](src/reference/all-settings.md) and [`../crates/settings`](../crates/settings) |
 | Status / state enums | Feature flags [`../crates/feature_flags`](../crates/feature_flags); editor/workspace state in those crates |
 | Domain vocabulary | [`../AGENTS.md`](../AGENTS.md) architecture table; [`../CONTRIBUTING.md`](../CONTRIBUTING.md) crate map |
 | Build / test / lint commands | [`../AGENTS.md`](../AGENTS.md); lint via [`../script/clippy`](../script/clippy) |
+| Windows source build | [`../script/windows.ps1`](../script/windows.ps1), [`../script/build-windows.ps1`](../script/build-windows.ps1); wiki [guides/windows-dev.md](guides/windows-dev.md); product [src/development/windows.md](src/development/windows.md) |
 | Product / tech specs | GitHub issues and Discussions on [synthet/zed](https://github.com/synthet/zed); no `specs/` tree |
 | Product docs | [`src/`](src/) mdBook; docs automation [`AGENTS.md`](AGENTS.md) |
+| LLM wiki hub | [`INDEX.md`](INDEX.md); conventions [`WIKI_SCHEMA.md`](WIKI_SCHEMA.md); docs map [`technical/docs-map.md`](technical/docs-map.md) |
 | Domain skills | [`.claude/skills/gpui-test`](../.claude/skills/gpui-test), [`zed-cherry-pick`](../.claude/skills/zed-cherry-pick), [`lint-creator`](../.claude/skills/lint-creator) |
 | Codex project configuration | [`.codex/config.toml`](../.codex/config.toml) and [`.codex/README.md`](../.codex/README.md) |
 | Optional file-search MCP (fff) | [fff repo](https://github.com/dmtrKovalenko/fff); template keys `fff-mcp` / `synth-zed-fff` in [`.cursor/mcp.example.json`](../.cursor/mcp.example.json) |
@@ -36,7 +39,9 @@ question.
 | Agent CLI environment (PATH, Cursor restart) | [`.claude/skills/cli-tools-overview/references/agent-environment.md`](../.claude/skills/cli-tools-overview/references/agent-environment.md) |
 | Agent assets (rules/commands/skills/agents) | [`ai-workflow/README.md`](ai-workflow/README.md) |
 | Safety rules | [`../.agent/SAFETY.md`](../.agent/SAFETY.md) |
+| Telemetry sinks (this fork) | [`technical/telemetry.md`](technical/telemetry.md); code [`../crates/client/src/telemetry.rs`](../crates/client/src/telemetry.rs) |
 | Wiki conventions | [`WIKI_SCHEMA.md`](WIKI_SCHEMA.md) |
+
 
 **Rule:** code and the written contract must never disagree. If you change one, change the other in
 the same PR (see [`../.agent/workflows/cross_repo_contract_change.md`](../.agent/workflows/cross_repo_contract_change.md)).

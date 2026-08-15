@@ -7,19 +7,18 @@ use fs::Fs;
 use futures::channel::mpsc;
 use futures::{Future, StreamExt};
 use gpui::{App, AppContext as _, BackgroundExecutor, Task};
-use http_client::{self, AsyncBody, HttpClient, HttpClientWithUrl, Method, Request};
+use http_client::HttpClientWithUrl;
 use parking_lot::Mutex;
 use regex::Regex;
 use release_channel::ReleaseChannel;
 use settings::{Settings, SettingsStore};
-use sha2::{Digest, Sha256};
 use std::collections::HashSet;
 use std::fs::File;
 use std::io::Write;
 use std::sync::LazyLock;
 use std::time::Instant;
 use std::{env, mem, path::PathBuf, sync::Arc, time::Duration};
-use telemetry_events::{AssistantEventData, AssistantPhase, Event, EventRequestBody, EventWrapper};
+use telemetry_events::{AssistantEventData, AssistantPhase, Event, EventWrapper};
 
 pub struct TelemetrySubscription {
     pub historical_events: Result<HistoricalEvents>,
@@ -38,6 +37,7 @@ use self::event_coalescer::EventCoalescer;
 
 pub struct Telemetry {
     clock: Arc<dyn SystemClock>,
+    #[allow(dead_code)]
     http_client: Arc<HttpClientWithUrl>,
     executor: BackgroundExecutor,
     state: Arc<Mutex<TelemetryState>>,
@@ -49,7 +49,9 @@ struct TelemetryState {
     installation_id: Option<Arc<str>>, // Per app installation (different for dev, nightly, preview, and stable)
     session_id: Option<String>,        // Per app launch
     metrics_id: Option<Arc<str>>,      // Per logged-in user
+    #[allow(dead_code)]
     release_channel: Option<ReleaseChannel>,
+    #[allow(dead_code)]
     architecture: &'static str,
     events_queue: Vec<EventWrapper>,
     flush_events_task: Option<Task<()>>,
@@ -634,78 +636,29 @@ impl Telemetry {
         self.state.lock().is_staff
     }
 
-    fn build_request(
-        self: &Arc<Self>,
-        // We take in the JSON bytes buffer so we can reuse the existing allocation.
-        mut json_bytes: Vec<u8>,
-        event_request: &EventRequestBody,
-    ) -> Result<Request<AsyncBody>> {
-        json_bytes.clear();
-        serde_json::to_writer(&mut json_bytes, event_request)?;
-
-        let checksum = calculate_json_checksum(&json_bytes).unwrap_or_default();
-
-        Ok(Request::builder()
-            .method(Method::POST)
-            .uri(
-                self.http_client
-                    .build_zed_api_url("/telemetry/events", &[])?
-                    .as_ref(),
-            )
-            .header("Content-Type", "application/json")
-            .header("x-zed-checksum", checksum)
-            .body(json_bytes.into())?)
-    }
-
     pub async fn flush_events_inner(self: &Arc<Self>) -> Result<()> {
-        let (json_bytes, request_body) = {
-            let mut state = self.state.lock();
-            state.first_event_date_time = None;
-            let events = mem::take(&mut state.events_queue);
-            state.flush_events_task.take();
-            if events.is_empty() {
-                return Ok(());
-            }
-
-            let mut json_bytes = Vec::new();
-
-            if let Some(file) = &mut state.log_file {
-                for event in &events {
-                    json_bytes.clear();
-                    serde_json::to_writer(&mut json_bytes, event)?;
-                    file.write_all(&json_bytes)?;
-                    file.write_all(b"\n")?;
-                }
-            }
-
-            (
-                json_bytes,
-                EventRequestBody {
-                    system_id: state.system_id.as_deref().map(Into::into),
-                    installation_id: state.installation_id.as_deref().map(Into::into),
-                    session_id: state.session_id.clone(),
-                    metrics_id: state.metrics_id.as_deref().map(Into::into),
-                    is_staff: state.is_staff,
-                    app_version: state.app_version.clone(),
-                    os_name: state.os_name.clone(),
-                    os_version: state.os_version.clone(),
-                    architecture: state.architecture.to_string(),
-
-                    release_channel: state
-                        .release_channel
-                        .map(|channel| channel.display_name().to_owned()),
-                    events,
-                },
-            )
-        };
-
-        let request = self.build_request(json_bytes, &request_body)?;
-        let response = self.http_client.send(request).await?;
-        if response.status() != 200 {
-            log::error!("Failed to send events: HTTP {:?}", response.status());
+        // Synth Zed: never POST telemetry to api.zed.dev. Still drain the queue
+        // and optionally write to the local telemetry log.
+        let mut state = self.state.lock();
+        state.first_event_date_time = None;
+        let events = mem::take(&mut state.events_queue);
+        state.flush_events_task.take();
+        if events.is_empty() {
+            return Ok(());
         }
 
-        anyhow::Ok(())
+        let mut json_bytes = Vec::new();
+
+        if let Some(file) = &mut state.log_file {
+            for event in &events {
+                json_bytes.clear();
+                serde_json::to_writer(&mut json_bytes, event)?;
+                file.write_all(&json_bytes)?;
+                file.write_all(b"\n")?;
+            }
+        }
+
+        Ok(())
     }
 
     pub fn flush_events(self: &Arc<Self>) -> Task<()> {
@@ -716,30 +669,15 @@ impl Telemetry {
     }
 }
 
-pub fn calculate_json_checksum(json: &impl AsRef<[u8]>) -> Option<String> {
-    let checksum_seed = ZED_CLIENT_CHECKSUM_SEED.as_ref()?;
-
-    let mut summer = Sha256::new();
-    summer.update(checksum_seed);
-    summer.update(json);
-    summer.update(checksum_seed);
-    let mut checksum = String::new();
-    for byte in summer.finalize().as_slice() {
-        use std::fmt::Write;
-        write!(&mut checksum, "{:02x}", byte).unwrap();
-    }
-
-    Some(checksum)
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
     use clock::FakeSystemClock;
 
-    use gpui::TestAppContext;
+    use gpui::{BorrowAppContext, TestAppContext};
     use http_client::FakeHttpClient;
     use std::collections::HashMap;
+    use std::sync::atomic::{AtomicUsize, Ordering};
     use telemetry_events::FlexibleEvent;
     use util::rel_path::RelPath;
     use worktree::{PathChange, ProjectEntryId, WorktreeId};
@@ -750,6 +688,7 @@ mod tests {
         cx: &mut TestAppContext,
     ) {
         init_test(cx);
+        enable_metrics(cx);
         let clock = Arc::new(FakeSystemClock::new());
         let http = FakeHttpClient::with_200_response();
         let system_id = Some("system_id".to_string());
@@ -827,6 +766,7 @@ mod tests {
         cx: &mut TestAppContext,
     ) {
         init_test(cx);
+        enable_metrics(cx);
         let clock = Arc::new(FakeSystemClock::new());
         let http = FakeHttpClient::with_200_response();
         let system_id = Some("system_id".to_string());
@@ -874,8 +814,63 @@ mod tests {
     }
 
     #[gpui::test]
+    async fn test_telemetry_flush_does_not_send_http(
+        executor: BackgroundExecutor,
+        cx: &mut TestAppContext,
+    ) {
+        init_test(cx);
+        enable_metrics(cx);
+        let request_count = Arc::new(AtomicUsize::new(0));
+        let http = FakeHttpClient::create({
+            let request_count = request_count.clone();
+            move |_| {
+                request_count.fetch_add(1, Ordering::SeqCst);
+                async move {
+                    Ok(http_client::Response::builder()
+                        .status(200)
+                        .body(Default::default())
+                        .unwrap())
+                }
+            }
+        });
+        let clock = Arc::new(FakeSystemClock::new());
+        let system_id = Some("system_id".to_string());
+        let installation_id = Some("installation_id".to_string());
+        let session_id = "session_id".to_string();
+
+        let telemetry = cx.update(|cx| {
+            let telemetry = Telemetry::new(clock.clone(), http, cx);
+            telemetry.state.lock().max_queue_size = 4;
+            telemetry.start(system_id, installation_id, session_id, cx);
+            telemetry
+        });
+
+        let event = FlexibleEvent {
+            event_type: "test".to_string(),
+            event_properties: HashMap::from_iter([(
+                "test_key".to_string(),
+                serde_json::Value::String("test_value".to_string()),
+            )]),
+        };
+
+        cx.update(|_cx| {
+            for _ in 0..4 {
+                telemetry.report_event(Event::Flexible(event.clone()));
+            }
+        });
+
+        executor.run_until_parked();
+
+        assert_eq!(request_count.load(Ordering::SeqCst), 0);
+        cx.update(|_cx| {
+            assert!(is_empty_state(&telemetry));
+        });
+    }
+
+    #[gpui::test]
     async fn test_report_remote_event_tags_origin(cx: &mut TestAppContext) {
         init_test(cx);
+        enable_metrics(cx);
         let clock = Arc::new(FakeSystemClock::new());
         let http = FakeHttpClient::with_200_response();
 
@@ -1055,14 +1050,20 @@ mod tests {
         );
     }
 
-    // TODO:
-    // Test settings
-    // Update FakeHTTPClient to keep track of the number of requests and assert on it
-
     fn init_test(cx: &mut TestAppContext) {
         cx.update(|cx| {
             let settings_store = SettingsStore::test(cx);
             cx.set_global(settings_store);
+        });
+    }
+
+    fn enable_metrics(cx: &mut TestAppContext) {
+        cx.update(|cx| {
+            cx.update_global::<SettingsStore, _>(|store, cx| {
+                store.update_user_settings(cx, |settings| {
+                    settings.telemetry.get_or_insert_default().metrics = Some(true);
+                });
+            });
         });
     }
 

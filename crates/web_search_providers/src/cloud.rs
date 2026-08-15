@@ -1,3 +1,6 @@
+//! Hosted Zed web search provider (kept for compile/link; not registered in local-first builds).
+#![allow(dead_code)]
+
 use std::sync::Arc;
 
 use anyhow::{Result, anyhow};

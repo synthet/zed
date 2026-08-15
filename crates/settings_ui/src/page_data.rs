@@ -75,7 +75,8 @@ pub(crate) fn settings_data(cx: &App) -> Vec<SettingsPage> {
         debugger_page(),
         terminal_page(),
         version_control_page(),
-        collaboration_page(),
+        // Local-first: Collaboration settings page hidden from the UI.
+        // collaboration_page(),
         ai_page(cx),
         network_page(),
         developer_page(cx),
@@ -400,12 +401,13 @@ fn general_page(cx: &App) -> SettingsPage {
         ]
     }
 
+    #[allow(dead_code)]
     fn privacy_section() -> [SettingsPageItem; 4] {
         [
             SettingsPageItem::SectionHeader("Privacy"),
             SettingsPageItem::SettingItem(SettingItem {
                 title: "Telemetry Diagnostics",
-                description: "Send debug information like crash reports.",
+                description: "Disabled in Synth Zed.",
                 field: Box::new(SettingField {
                     organization_override: None,
                     json_path: Some("telemetry.diagnostics"),
@@ -427,7 +429,7 @@ fn general_page(cx: &App) -> SettingsPage {
             }),
             SettingsPageItem::SettingItem(SettingItem {
                 title: "Telemetry Metrics",
-                description: "Send anonymized usage data like what languages you're using Zed with.",
+                description: "Disabled in Synth Zed.",
                 field: Box::new(SettingField {
                     organization_override: None,
                     json_path: Some("telemetry.metrics"),
@@ -497,7 +499,7 @@ fn general_page(cx: &App) -> SettingsPage {
             security_section(),
             workspace_restoration_section(),
             scoped_settings_section(),
-            privacy_section(),
+            // Synth Zed: telemetry privacy toggles removed (sinks disabled).
             auto_update_section(),
         )
         .into(),
@@ -8077,6 +8079,7 @@ fn version_control_page() -> SettingsPage {
     }
 }
 
+#[allow(dead_code)] // Local-first: collaboration settings page kept but not shown in UI.
 fn collaboration_page() -> SettingsPage {
     fn calls_section() -> [SettingsPageItem; 3] {
         [

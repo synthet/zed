@@ -10,6 +10,16 @@ from pathlib import Path
 _SCRIPTS_DIR = Path(__file__).resolve().parent
 _REPO_ROOT = _SCRIPTS_DIR.parent
 
+# OKF skips mdBook, archive snapshots, and the zed-warp design wiki (own frontmatter).
+DEFAULT_OKF_EXCLUDE_PREFIXES = [
+    "archive/",
+    "src/",
+    "theme/",
+    ".doc-examples/",
+    ".conventions/",
+    "zed-warp/",
+]
+
 
 def build_parser() -> argparse.ArgumentParser:
     default_docs = _REPO_ROOT / "docs"
@@ -29,7 +39,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--exclude-prefix",
         action="append",
-        default=["archive/"],
+        default=list(DEFAULT_OKF_EXCLUDE_PREFIXES),
         dest="exclude_prefixes",
         help="Skip OKF frontmatter checks under this prefix (repeatable)",
     )

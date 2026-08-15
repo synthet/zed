@@ -110,6 +110,10 @@ While a trace is recording, open the command palette and run one of the followin
 
 Recordings automatically save after 60 seconds if not stopped manually.
 
+## Zed × Warp hybrid {#zed-warp-hybrid}
+
+Fork-internal architecture notes for using Warp and Zed together live in [`docs/zed-warp/`](../zed-warp/README.md). That wiki is **mirrored** with Synth Warp (`D:/Projects/warp/docs/zed-warp/`) and is not shipped product documentation. See [MIRROR.md](../zed-warp/MIRROR.md).
+
 ## Contributor links
 
 - [CONTRIBUTING.md](https://github.com/zed-industries/zed/blob/main/CONTRIBUTING.md)

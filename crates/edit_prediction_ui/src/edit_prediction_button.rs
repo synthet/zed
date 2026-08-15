@@ -1110,10 +1110,7 @@ impl EditPredictionButton {
             let user = self.user_store.read(cx).current_user();
 
             let needs_sign_in = user.is_none()
-                && matches!(
-                    provider,
-                    EditPredictionProvider::None | EditPredictionProvider::Zed
-                );
+                && matches!(provider, EditPredictionProvider::Zed);
 
             if needs_sign_in {
                 menu = menu
@@ -1176,13 +1173,7 @@ impl EditPredictionButton {
                 if mercury_payment_required {
                     menu = menu
                         .header("Mercury")
-                        .item(ContextMenuEntry::new("Free tier limit reached").disabled(true))
-                        .item(
-                            ContextMenuEntry::new(
-                                "Upgrade to a paid plan to continue using the service",
-                            )
-                            .disabled(true),
-                        )
+                        .item(ContextMenuEntry::new("Usage limit reached").disabled(true))
                         .separator();
                 }
 
@@ -1222,17 +1213,13 @@ impl EditPredictionButton {
                                     )
                                     .into_any_element()
                             },
-                            move |_, cx| cx.open_url(&zed_urls::account_url(cx)),
+                            move |_, _cx| {},
                         )
                         .when(usage.over_limit(), |menu| -> ContextMenu {
-                            menu.entry("Subscribe to increase your limit", None, |_window, cx| {
-                                telemetry::event!(
-                                    "Edit Prediction Menu Action",
-                                    action = "upsell_clicked",
-                                    reason = "usage_limit",
-                                );
-                                cx.open_url(&zed_urls::account_url(cx))
-                            })
+                            menu.item(
+                                ContextMenuEntry::new("You've reached your usage limit.")
+                                    .disabled(true),
+                            )
                         })
                         .separator();
                 } else if self.user_store.read(cx).account_too_young() {
@@ -1244,16 +1231,8 @@ impl EditPredictionButton {
                                     .color(Color::Warning)
                                     .into_any_element()
                             },
-                            |_window, cx| cx.open_url(&zed_urls::account_url(cx)),
+                            |_window, _cx| {},
                         )
-                        .entry("Upgrade to Zed Pro or contact us.", None, |_window, cx| {
-                            telemetry::event!(
-                                "Edit Prediction Menu Action",
-                                action = "upsell_clicked",
-                                reason = "account_age",
-                            );
-                            cx.open_url(&zed_urls::account_url(cx))
-                        })
                         .separator();
                 } else if self.user_store.read(cx).has_overdue_invoices() {
                     menu = menu
@@ -1264,16 +1243,7 @@ impl EditPredictionButton {
                                     .color(Color::Warning)
                                     .into_any_element()
                             },
-                            |_window, cx| {
-                                cx.open_url(&zed_urls::account_url(cx))
-                            },
-                        )
-                        .entry(
-                            "Check your payment status or contact us at billing-support@zed.dev to continue using this feature.",
-                            None,
-                            |_window, cx| {
-                                cx.open_url(&zed_urls::account_url(cx))
-                            },
+                            |_window, _cx| {},
                         )
                         .separator();
                 }
@@ -1484,7 +1454,7 @@ pub fn set_completion_provider(fs: Arc<dyn Fs>, cx: &mut App, provider: EditPred
 pub fn get_available_providers(cx: &mut App) -> Vec<EditPredictionProvider> {
     let mut providers = Vec::new();
 
-    providers.push(EditPredictionProvider::Zed);
+    // Local-first: do not offer hosted Zed edit predictions in the provider picker.
 
     let app_state = workspace::AppState::global(cx);
     if copilot::GlobalCopilotAuth::try_get_or_init(app_state, cx)

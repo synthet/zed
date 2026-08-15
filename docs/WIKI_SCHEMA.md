@@ -4,13 +4,17 @@ title: Wiki Schema
 description: Documentation structure, naming, link, metadata, and maintenance conventions.
 resource: WIKI_SCHEMA.md
 tags: [docs, schema, okf, maintenance]
-timestamp: 2026-06-16T00:00:00Z
+timestamp: 2026-08-15T00:00:00Z
 okf_version: 0.1
 ---
 
 # Wiki schema — `docs/`
 
 This repository keeps `docs/` as an LLM-maintained wiki: small pages, clear hubs, and stable links to canonical contracts.
+
+`docs/` holds **two trees**. Wiki folders (`architecture/`, `guides/`, …) and root hubs (`INDEX.md`, `ARCHITECTURE.md`, …) are siblings of the shipped mdBook source (`src/`). Do not copy product docs into the wiki; link to `src/` when a user-facing page is the canonical write-up. The Zed × Warp design wiki lives in [`zed-warp/`](zed-warp/README.md) and is not shipped product documentation.
+
+Entry for agents: [`INDEX.md`](INDEX.md). [`README.md`](README.md) is the mdBook contributor page (preview, preprocessor, Prettier) — not the wiki hub.
 
 
 ## OKF alignment
@@ -35,6 +39,8 @@ folder and an `INDEX.md` hub in each:
 | [`reports/`](reports/) | Point-in-time audits and research |
 | [`archive/`](archive/) | Deprecated or superseded material (kept for history; excluded from lint) |
 | [`project/`](project/) | Backlog workflow and governance pointers |
+| [`zed-warp/`](zed-warp/) | Fork-internal hybrid design wiki (mirrored; not mdBook) |
+| [`src/`](src/) | Shipped product docs (mdBook). Not wiki content. |
 
 ### Repo root hub pages (`docs/*.md`)
 

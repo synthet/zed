@@ -20,13 +20,13 @@ Read `docs/OKF_ADOPTION.md` and `docs/WIKI_SCHEMA.md` for the OKF frontmatter pr
 ## Steps
 
 0. **Run automated lint** (from repo root):
-   - `python scripts/okf_lint.py --profile project --exclude-prefix archive/`
-   - Optional combined structural scan: `python scripts/wiki_lint.py --exclude-prefix archive/`
+   - Combined (preferred): `python scripts/wiki_lint.py`
+   - OKF only: `python scripts/okf_lint.py --profile project --exclude-prefix archive/ --exclude-prefix src/ --exclude-prefix theme/ --exclude-prefix .doc-examples/ --exclude-prefix .conventions/ --exclude-prefix zed-warp/`
    - Optional sibling bundle: `python scripts/okf_lint.py ../<sibling-repo>/docs --profile project`
-   Use findings as the starting point for manual review below.
+   Use findings as the starting point for manual review below. Do not treat `docs/src/` (mdBook) as wiki content.
 
 1. **Scan all INDEX.md files** — build a list of every page referenced in indexes.
-2. **Scan all .md files in `docs/`** — build a list of every page that exists on disk and note which living docs lack OKF frontmatter or a non-empty `type`.
+2. **Scan living wiki markdown** — every `.md` under `docs/` except mdBook (`src/`, `theme/`, `.doc-examples/`, `.conventions/`). Note which living docs lack OKF frontmatter or a non-empty `type`. Skip OKF on `archive/` and `zed-warp/`.
 3. **Compare** to find:
    - **Orphan pages** — exist on disk but not in any INDEX.md
    - **Broken index entries** — listed in INDEX.md but file doesn't exist

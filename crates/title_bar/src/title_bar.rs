@@ -1,12 +1,10 @@
 mod application_menu;
 pub mod collab;
 mod onboarding_banner;
-mod plan_chip;
 mod title_bar_settings;
 mod update_version;
 
 use crate::application_menu::{ApplicationMenu, show_menus};
-use crate::plan_chip::PlanChip;
 use agent_settings::{AgentSettings, WindowLayout};
 use arrayvec::ArrayVec;
 use git_ui_core::worktree_picker::WorktreePicker;
@@ -23,7 +21,7 @@ use crate::application_menu::{
 
 use auto_update::AutoUpdateStatus;
 use call::ActiveCall;
-use client::{Client, UserStore, zed_urls};
+use client::{Client, UserStore};
 use command_palette_hooks::CommandPaletteFilter;
 
 use gpui::{
@@ -1218,10 +1216,7 @@ impl TitleBar {
             .read(cx)
             .organizations()
             .iter()
-            .map(|organization| {
-                let plan = user_store.read(cx).plan_for_organization(&organization.id);
-                (organization.clone(), plan)
-            })
+            .cloned()
             .collect();
 
         let show_user_picture = TitleBarSettings::get_global(cx).show_user_picture;
@@ -1287,9 +1282,7 @@ impl TitleBar {
                                     .child(Label::new(username))
                                     .into_any_element()
                             },
-                            move |_, cx| {
-                                cx.open_url(&zed_urls::account_url(cx));
-                            },
+                            move |_, _cx| {},
                         )
                         .separator()
                     })
@@ -1317,9 +1310,8 @@ impl TitleBar {
                     .map(|this| {
                         let mut this = this.header("Organization");
 
-                        for (organization, plan) in &organizations {
+                        for organization in &organizations {
                             let organization = organization.clone();
-                            let plan = *plan;
 
                             let is_current =
                                 current_organization
@@ -1347,7 +1339,6 @@ impl TitleBar {
                                                         )
                                                     }),
                                             )
-                                            .children(plan.map(|plan| PlanChip::new(plan)))
                                             .into_any_element()
                                     }
                                 },

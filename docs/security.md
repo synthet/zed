@@ -4,7 +4,7 @@ title: Security Model
 description: Security model, secret-handling rules, and the pre-merge security review checklist.
 resource: security.md
 tags: [docs, security]
-timestamp: 2026-06-16T00:00:00Z
+timestamp: 2026-08-15T17:45:00Z
 okf_version: 0.1
 ---
 
@@ -37,6 +37,7 @@ okf_version: 0.1
 - [ ] No secrets, tokens, or credentials in the diff.
 - [ ] New inputs validated; injection/path-traversal considered.
 - [ ] No new undocumented network calls or secret-storage locations.
+- [ ] Telemetry / crash / analytics sinks stay local-only ([technical/telemetry.md](technical/telemetry.md)).
 - [ ] Side-effecting actions gated behind confirmation/approval.
 - [ ] Logs/outputs redact sensitive values.
 

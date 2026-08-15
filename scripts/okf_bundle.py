@@ -60,8 +60,14 @@ def is_excluded_path(rel_path: str, exclude_prefixes: tuple[str, ...]) -> bool:
 
 
 def is_concept_file(rel_path: str) -> bool:
-    name = Path(rel_path).name
-    return name != LOG_FILENAME
+    normalized = rel_path.replace("\\", "/")
+    name = Path(normalized).name
+    if name == LOG_FILENAME:
+        return False
+    # Bundle-root README.md / AGENTS.md are mdBook contributor pages, not OKF concepts.
+    if normalized in {"README.md", "AGENTS.md"}:
+        return False
+    return True
 
 
 def expected_resource_paths(rel_path: str, bundle_label: str = "docs") -> set[str]:

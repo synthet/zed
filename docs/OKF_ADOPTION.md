@@ -4,7 +4,7 @@ title: Open Knowledge Format Adoption
 description: Local adoption plan for making docs/ an OKF-aligned, agent-readable knowledge bundle without disruptive renames.
 resource: OKF_ADOPTION.md
 tags: [docs, okf, agents, governance]
-timestamp: 2026-06-16T00:00:00Z
+timestamp: 2026-08-15T00:00:00Z
 okf_version: 0.1
 ---
 
@@ -110,6 +110,7 @@ This repo does **not** depend on Google's `enrichment-agent` package. We adopt t
 | `okf_version` | Optional on bundle-root `index.md` only | Recommended on materially updated concept pages |
 | Activity log | Optional `log.md` | Required append-only [`log.md`](log.md); **no** frontmatter on log files |
 | Archive snapshots | Not specified | Excluded from lint via `--exclude-prefix archive/` |
+| mdBook / design wiki | Not specified | Combined `wiki_lint.py` also skips `src/`, `theme/`, `.doc-examples/`, `.conventions/`, and `zed-warp/` for OKF. Structural scan skips the mdBook prefixes but still lints `zed-warp/` (its `README.md` is a hub). Bundle-root `README.md` and `AGENTS.md` are not OKF concepts. |
 
 ## Citations (OKF §8)
 
@@ -126,23 +127,33 @@ Reports and audits that cite external sources should add a `# Citations` section
 From repo root (any Python 3 with PyYAML):
 
 ```bash
-# Full project profile (default); skip archived snapshots
-python scripts/okf_lint.py --profile project --exclude-prefix archive/
+# Combined structural + OKF (default skips archive/, src/, theme/,
+# .doc-examples/, .conventions/, zed-warp/)
+python scripts/wiki_lint.py
+
+# Full project profile; pass the same prefixes when calling okf_lint directly
+python scripts/okf_lint.py --profile project \
+  --exclude-prefix archive/ --exclude-prefix src/ --exclude-prefix theme/ \
+  --exclude-prefix .doc-examples/ --exclude-prefix .conventions/ \
+  --exclude-prefix zed-warp/
 
 # OKF v0.1 minimal conformance (type + parseable frontmatter only)
-python scripts/okf_lint.py --profile minimal --exclude-prefix archive/
+python scripts/okf_lint.py --profile minimal \
+  --exclude-prefix archive/ --exclude-prefix src/ --exclude-prefix theme/ \
+  --exclude-prefix .doc-examples/ --exclude-prefix .conventions/ \
+  --exclude-prefix zed-warp/
 
 # Optional sibling bundle
 python scripts/okf_lint.py ../<sibling-repo>/docs --profile project --bundle-name docs
 
-# Structural orphans/links + OKF metadata
-python scripts/wiki_lint.py --exclude-prefix archive/
-
 # CI-friendly JSON + non-zero exit on errors
-python scripts/okf_lint.py --json --fail-on error --exclude-prefix archive/
+python scripts/okf_lint.py --json --fail-on error \
+  --exclude-prefix archive/ --exclude-prefix src/ --exclude-prefix theme/ \
+  --exclude-prefix .doc-examples/ --exclude-prefix .conventions/ \
+  --exclude-prefix zed-warp/
 ```
 
-Expect `project`-profile warnings on living docs until they are touched opportunistically; archive paths are skipped by default.
+Expect `project`-profile warnings on living docs until they are touched opportunistically; archive, mdBook, and `zed-warp/` paths are skipped by the combined linter by default.
 
 ### Continuous integration
 

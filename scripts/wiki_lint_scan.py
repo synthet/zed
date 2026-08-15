@@ -12,10 +12,40 @@ if str(_SCRIPTS_DIR) not in sys.path:
 from okf_bundle import LINK_RE, resolve_internal_link  # noqa: E402
 
 HUB_NAMES = ("INDEX.md", "README.md")
-def lint_docs(docs_root: Path) -> dict:
+# mdBook source, theme, and brand-writer trees are not LLM-wiki content.
+STRUCTURAL_SKIP_PREFIXES = (
+    "src/",
+    "theme/",
+    ".doc-examples/",
+    ".conventions/",
+)
+# Bundle-root mdBook automation page (example links are not wiki targets).
+STRUCTURAL_SKIP_FILES = frozenset({"AGENTS.md"})
+
+
+def _is_skipped(rel_path: str, prefixes: tuple[str, ...]) -> bool:
+    normalized = rel_path.replace("\\", "/")
+    if normalized in STRUCTURAL_SKIP_FILES:
+        return True
+    return any(normalized.startswith(prefix) for prefix in prefixes)
+
+
+def lint_docs(
+    docs_root: Path,
+    skip_prefixes: tuple[str, ...] = STRUCTURAL_SKIP_PREFIXES,
+) -> dict:
     docs_root = docs_root.resolve()
-    all_md = {p.relative_to(docs_root).as_posix() for p in docs_root.rglob("*.md")}
-    hubs = [p for p in docs_root.rglob("*.md") if p.name in HUB_NAMES]
+    all_md = {
+        p.relative_to(docs_root).as_posix()
+        for p in docs_root.rglob("*.md")
+        if not _is_skipped(p.relative_to(docs_root).as_posix(), skip_prefixes)
+    }
+    hubs = [
+        p
+        for p in docs_root.rglob("*.md")
+        if p.name in HUB_NAMES
+        and not _is_skipped(p.relative_to(docs_root).as_posix(), skip_prefixes)
+    ]
 
     indexed: set[str] = set()
     for hub in hubs:
