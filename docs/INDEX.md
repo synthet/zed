@@ -4,7 +4,7 @@ title: Documentation Index
 description: LLM wiki hub for Synth Zed. mdBook product docs live under src/.
 resource: INDEX.md
 tags: [docs, index, wiki]
-timestamp: 2026-08-15T17:30:00Z
+timestamp: 2026-08-15T17:45:00Z
 okf_version: 0.1
 ---
 
@@ -14,7 +14,7 @@ LLM wiki entry. Which tree to use: [technical/docs-map.md](technical/docs-map.md
 
 ## Root hubs
 
-- [ARCHITECTURE.md](ARCHITECTURE.md) — system overview, crates, fork deltas
+- [ARCHITECTURE.md](ARCHITECTURE.md) — system overview, crates, fork deltas, telemetry sinks
 - [DEVELOPMENT.md](DEVELOPMENT.md) — build, lint, platform setup
 - [TESTING.md](TESTING.md) — test vocabulary and GPUI tests
 - [TROUBLESHOOTING.md](TROUBLESHOOTING.md) — Windows Spectre/locks/resume
