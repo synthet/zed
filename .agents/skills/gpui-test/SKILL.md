@@ -4,6 +4,12 @@ description: >-
   Use when writing, debugging, or reproducing GPUI tests in Zed, including
   gpui::test arguments, TestAppContext parameters, scheduler seeds,
   ITERATIONS/SEED reproduction, parking failures, and pending task traces.
+capability: "GPUI test debugging and seed reproduction"
+side_effect_level: local_write
+approval_required: false
+requires_tools: "See asset body for tool requirements."
+output_schema: "Markdown report or documented command output."
+risk_class: medium
 ---
 
 # GPUI Test Debugging
