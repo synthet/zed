@@ -15,10 +15,11 @@
 
 ## Backlog & queue
 
-Work comes from **GitHub issues** on [synthet/zed](https://github.com/synthet/zed). Feature
-requests stay in GitHub Discussions; bugs use the issue templates. Do not invent items in
-`.agent/backlog/items.md` or a parallel `specs/` tree. Optional `/task-claim` docs remain under
-[`.agent/backlog/`](.agent/backlog/README.md).
+Work comes from the **Local Markdown** backlog at [`.agent/backlog/items.md`](.agent/backlog/items.md),
+following [`providers/local-markdown.md`](.agent/backlog/providers/local-markdown.md). GitHub Issues
+and Discussions are both disabled on [synthet/zed](https://github.com/synthet/zed), so neither is a
+work source today. Claim with `/task-claim <item-ref>` and reference the local ID in the PR body
+(`Refs L-001`). Do not create a parallel `specs/` tree.
 
 [`CONTRIBUTING.md`](CONTRIBUTING.md) requires a human in the loop. Do not open autonomous-agent PRs.
 

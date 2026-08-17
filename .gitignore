@@ -62,6 +62,7 @@ crates/docs_preprocessor/actions.json
 .local*
 
 # --- synthet-code-framework agent paths ---
+cargo-check-*.log
 secrets.json
 .env.*
 !.env.example
