@@ -1,38 +1,64 @@
 # Synthet bundled themes
 
-This directory adds 29 Zed theme variants from the cross-app `synthet-theme` artifact library.
-Together with the 11 Ayu, Gruvbox, and One variants already under `assets/themes`, that is 40
-theme variants in total. The existing 11 Zed-sourced variants retain their established names and
-byte-identical bundled files.
+This directory adds 24 Zed theme variants from the cross-app `synthet-theme` artifact library.
+Together with the 11 Ayu, Gruvbox, and One variants already under `assets/themes`, that is 35
+theme variants presenting 35 distinct names — no two variants share a name. The existing 11
+Zed-sourced variants retain their established names and byte-identical bundled files.
+
+**This file is the engineering record**: pinned upstream revisions, what was verified, and what was
+adapted. The end-user legal notice lives in [`../LICENSES`](../LICENSES), which is concatenated into
+the generated `assets/licenses.md` shipped behind `zed: open licenses`. If you add or remove a theme
+here, update that file too — this one is never shown to users.
 
 ## Naming
 
 The imported variants use **plain display names** — `Koi`, `Catppuccin Mocha`, `Tokyo Night` — with
 no source prefix, matching the names their upstreams use.
 
-Four names are consequently shared by more than one variant, so the 40 variants present **36
-distinct theme names** and the theme picker offers 36 entries:
+`theme_settings::load_bundled_themes` inserts families into the registry keyed by name, so a
+duplicate name would silently shadow whichever file loads first. The name set is asserted in
+`crates/theme_settings/tests/synthet_default_themes.rs`, which keeps that from regressing.
 
-| Name | Files sharing it |
-|---|---|
-| `Dracula` | `popular-dark/dracula.json`, `warp-defaults/dracula.json` |
-| `Gruvbox Dark` | `../gruvbox/`, `warp-defaults/gruvbox-dark.json` |
-| `Gruvbox Light` | `../gruvbox/`, `warp-defaults/gruvbox-light.json` |
-| `Solarized Dark` | `popular-dark/solarized-dark.json`, `warp-defaults/solarized-dark.json` |
+## `popular-dark/` — 5 variants
 
-`theme_settings::load_bundled_themes` inserts families into the registry in asset-listing order, so
-for each of those four names the last file loaded is the one that ends up selectable. Rename the
-variants if both need to be reachable.
+Zed implementations of widely used dark palettes. Each was verified slot by slot against its real
+upstream — `background`, `text`, and all 16 `terminal.ansi.*` values.
 
-## `popular-dark/` — 8 variants
+| Theme | Upstream verified against | Result | License |
+|---|---|---|---|
+| `nord.json` | [`nordtheme/visual-studio-code`](https://github.com/nordtheme/visual-studio-code) `develop/themes/nord-color-theme.json` | **exact** — 16/16 ANSI plus background and foreground | MIT |
+| `catppuccin-mocha.json` | [`catppuccin/palette`](https://github.com/catppuccin/palette) `main/palette.json` | **exact** — all 12 mapped slots (`pink`→magenta, `teal`→cyan) | MIT |
+| `github-dark-default.json` | [`primer/primitives`](https://github.com/primer/primitives) `dist/json/colors/dark.json` | **adaptation** — see below | MIT |
+| `tokyo-night.json` | [`folke/tokyonight.nvim`](https://github.com/folke/tokyonight.nvim) `extras/wezterm/tokyonight_night.toml` | normal 8/8 **exact**; bright variants are original | Apache-2.0 |
+| `jetbrains-darcula.json` | [`JetBrains/intellij-community`](https://github.com/JetBrains/intellij-community) `platform/platform-resources/src/DefaultColorSchemesManager.xml`, `Darcula` scheme | **adaptation** — see below | Apache-2.0 |
 
-Generated Zed implementations based on the catalog's pinned upstream theme research. Dracula,
-Catppuccin, GitHub Dark, Nord, One Dark Pro, Solarized, and Tokyo Night sources are MIT;
-JetBrains Darcula is Apache-2.0.
+### Adaptations in this group
 
-## `warp-defaults/` — 21 variants
+Neither GitHub nor JetBrains publishes a 16-colour ANSI set for these themes, so both are built by
+mapping the upstream **syntax** palette onto Zed's terminal slots:
 
-### Apache-2.0 — 18 variants
+- `github-dark-default.json` uses GitHub's `prettylights.syntax` values — `keyword` to red,
+  `entityTag` to green, `variable` to yellow, `constant` to blue, `entity` to magenta, `string` to
+  cyan, `comment` to bright black — with `canvas.default` for background and `fg.default` for text.
+  `bright_red` is upstream's `ansi.redBright`. `bright_cyan` (`#b6e3ff`) and `bright_magenta`
+  (`#d8b9ff`) are not in the current primitives package and are original.
+- `jetbrains-darcula.json` uses Darcula's scheme colours — keyword `#cc7832` to red, string
+  `#6a8759` to green, function declaration `#ffc66d` to yellow, number `#6897bb` to blue, instance
+  field `#9876aa` to magenta, doc comment `#629755` to cyan, default text `#a9b7c6` to white, and
+  background `#2b2b2b`. All nine are present in the upstream `Darcula` scheme; the six bright
+  variants are original lightenings.
+- `tokyo-night.json` takes its eight normal colours verbatim from tokyonight.nvim's WezTerm extra;
+  its bright variants duplicate the normals except `bright_black` and `bright_white`, and are ours.
+
+`intellij-community`'s root `LICENSE.txt` is the **JetBrains Open-Source Build Terms v1.3**, which
+govern the distributed IDE builds and state that the source they are assembled from is under the
+Apache 2.0 License. The attribution therefore cites the source file, not `LICENSE.txt`. "JetBrains"
+and "Darcula" are trademarks of JetBrains s.r.o.; Apache-2.0 grants no trademark rights, and the
+theme name is used descriptively.
+
+## `warp-defaults/` — 19 variants
+
+### Apache-2.0 — 16 variants
 
 Derived from the published Warp theme repository
 [`warpdotdev/themes`](https://github.com/warpdotdev/themes) at commit
@@ -40,7 +66,7 @@ Derived from the published Warp theme repository
 repository's `LICENSE`. The upstream files live under `warp_bundled/`. The repository's Apache-2.0
 terms are the same as this repository's root [`LICENSE-APACHE`](../../../LICENSE-APACHE).
 
-Each of these 18 was verified against its upstream YAML: all 16 `terminal_colors` values
+Each of these 16 was verified against its upstream YAML: all 16 `terminal_colors` values
 (`normal` and `bright`) and `foreground` are identical.
 
 Two documented adaptations were needed, because Zed's theme schema has no equivalent slot:
@@ -57,11 +83,9 @@ Two documented adaptations were needed, because Zed's theme schema has no equiva
 | `dark-city.json` | `dark_city.yaml` | | `pink-city.json` | `pink_city.yaml` |
 | `dracula.json` | `dracula.yaml` | | `red-rock.json` | `red_rock.yaml` |
 | `fancy-dracula.json` | `fancy_dracula.yaml` | | `snowy.json` | `snowy.yaml` |
-| `gruvbox-dark.json` | `gruvbox_dark.yaml` | | `solarized-dark.json` | `solarized_dark.yaml` |
-| `gruvbox-light.json` | `gruvbox_light.yaml` | | `solarized-light.json` | `solarized_light.yaml` |
-| `jellyfish.json` | `jellyfish.yaml` | | `willow-dream.json` | `willow_dream.yaml` |
-| `koi.json` | `koi.yaml` | | | |
-| `leafy.json` | `leafy.yaml` | | | |
+| `jellyfish.json` | `jellyfish.yaml` | | `solarized-dark.json` | `solarized_dark.yaml` |
+| `koi.json` | `koi.yaml` | | `solarized-light.json` | `solarized_light.yaml` |
+| `leafy.json` | `leafy.yaml` | | `willow-dream.json` | `willow_dream.yaml` |
 
 ### AGPL-3.0-only — 3 variants
 
@@ -78,10 +102,17 @@ a substitute source for `solar-flare.json`.
 
 ## Not included
 
+- **One Dark Pro** — the file shipped under this name did not match
+  [`Binaryify/OneDark-Pro`](https://github.com/Binaryify/OneDark-Pro) (upstream is `#3f4451` /
+  `#e05561` / `#8cc265`); its eight normal ANSI colours were identical to Zed's own bundled
+  **One Dark**. It was misattributed and redundant, so it was removed rather than relabelled.
+- **Dracula**, **Solarized Dark**, **Gruvbox Dark**, **Gruvbox Light** — each shipped twice, once
+  from `popular-dark/` or `warp-defaults/` and once from an already-verified variant. One file per
+  name was kept: the Warp-sourced Dracula and Solarized Dark, and Zed's own Gruvbox family.
 - **Monokai Pro** — the public Monokai Pro repository describes a proprietary commercial theme and
   publishes no license, so there is no grant to redistribute it.
 - **Warp referral themes** (`received-referral-reward`, `sent-referral-reward`) — Warp product
   marketing rather than editor themes.
 
 The generated Zed JSON implementations are distributed as part of this Synth Zed fork under the
-repository's licensing terms, subject to the upstream notices above.
+repository's licensing terms, subject to the upstream notices in [`../LICENSES`](../LICENSES).

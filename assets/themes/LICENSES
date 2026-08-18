@@ -281,3 +281,77 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+********************************************************************************
+
+## Synthet bundled themes — MIT
+
+Zed theme implementations under `themes/synthet/` derived from the following MIT-licensed
+upstream palettes. Each is a new file written for Zed's theme schema, not a copy of the
+upstream file; per-theme detail on what was copied and what was adapted is in
+`themes/synthet/PROVENANCE.md`.
+
+- [Nord](https://github.com/nordtheme/visual-studio-code) —
+  Copyright (c) 2016-present Sven Greb <development@svengreb.de>
+- [Catppuccin Mocha](https://github.com/catppuccin/palette) — Copyright (c) 2021 Catppuccin
+- [GitHub Dark Default](https://github.com/primer/primitives) — Copyright (c) 2018 GitHub Inc.
+
+The MIT License (MIT)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+********************************************************************************
+
+## Synthet bundled themes — Apache-2.0
+
+Zed theme implementations under `themes/synthet/` derived from the following Apache-2.0
+upstream palettes. Each is a new file written for Zed's theme schema; the palettes were
+adapted, not copied verbatim, and `themes/synthet/PROVENANCE.md` records the changes.
+
+Sixteen themes derived from [warpdotdev/themes](https://github.com/warpdotdev/themes) at
+commit `82e51dcf9b47912d551107748ba3297a21b2eff3` — Copyright (c) Warp Dev, Inc.:
+
+    Cyber Wave      Dark            Dark City       Dracula
+    Fancy Dracula   Jellyfish       Koi             Leafy
+    Light           Marble          Pink City       Red Rock
+    Snowy           Solarized Dark  Solarized Light Willow Dream
+
+- [Tokyo Night](https://github.com/folke/tokyonight.nvim) — Copyright (c) Folke Lemaitre
+- [JetBrains Darcula](https://github.com/JetBrains/intellij-community) —
+  Copyright (c) JetBrains s.r.o. Derived from the `Darcula` scheme in
+  `platform/platform-resources/src/DefaultColorSchemesManager.xml`, which that repository
+  publishes under the Apache 2.0 License. "JetBrains" and "Darcula" are trademarks of
+  JetBrains s.r.o.; this name is used descriptively and no trademark license is claimed.
+
+These themes are licensed under the Apache License, Version 2.0. The full text is the same
+as this repository's root `LICENSE-APACHE` and is available at
+http://www.apache.org/licenses/LICENSE-2.0.
+
+********************************************************************************
+
+## Synthet bundled themes — AGPL-3.0-only
+
+Zed theme implementations under `themes/synthet/warp-defaults/` adapted from built-in themes
+of the Warp terminal application source, which declares `AGPL-3.0-only` —
+Copyright (c) Warp Dev, Inc.:
+
+    Adeberry        Phenomenon      Solar Flare
+
+The full GNU Affero General Public License v3.0 text is included at
+`themes/synthet/LICENSE-AGPL-3.0` and applies only to these three themes.

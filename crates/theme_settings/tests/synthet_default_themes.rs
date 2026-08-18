@@ -2,7 +2,7 @@ use std::collections::HashSet;
 
 use theme::ThemeRegistry;
 
-const SHARED_DEFAULT_THEME_NAMES: [&str; 36] = [
+const SHARED_DEFAULT_THEME_NAMES: [&str; 35] = [
     "Adeberry",
     "Ayu Dark",
     "Ayu Light",
@@ -28,7 +28,6 @@ const SHARED_DEFAULT_THEME_NAMES: [&str; 36] = [
     "Marble",
     "Nord",
     "One Dark",
-    "One Dark Pro",
     "One Light",
     "Phenomenon",
     "Pink City",
@@ -51,6 +50,28 @@ fn shared_catalog_themes_have_plain_bundled_names() {
         .into_iter()
         .filter(|name| !bundled_names.contains(*name))
         .collect::<Vec<_>>();
+    let redundant_names = bundled_names
+        .iter()
+        .filter(|name| name.starts_with("Synthet "))
+        .collect::<Vec<_>>();
 
     assert!(missing.is_empty(), "missing bundled themes: {missing:?}");
+    assert!(
+        redundant_names.is_empty(),
+        "themes with redundant name hints: {redundant_names:?}"
+    );
+}
+
+#[test]
+fn only_theme_json_is_embedded() {
+    let non_json = gpui::AssetSource::list(&assets::Assets, "themes/")
+        .expect("failed to list theme assets")
+        .into_iter()
+        .filter(|path| !path.ends_with(".json"))
+        .collect::<Vec<_>>();
+
+    assert!(
+        non_json.is_empty(),
+        "non-theme assets embedded under themes/: {non_json:?}"
+    );
 }
