@@ -4,7 +4,7 @@ title: Canonical Sources
 description: Authority map — the single source of truth for each contract, convention, and config in this project.
 resource: CANONICAL_SOURCES.md
 tags: [docs, governance, authority]
-timestamp: 2026-08-15T17:45:00Z
+timestamp: 2026-08-17T00:00:00Z
 okf_version: 0.1
 ---
 
@@ -28,7 +28,8 @@ question.
 | Domain vocabulary | [`../AGENTS.md`](../AGENTS.md) architecture table; [`../CONTRIBUTING.md`](../CONTRIBUTING.md) crate map |
 | Build / test / lint commands | [`../AGENTS.md`](../AGENTS.md); lint via [`../script/clippy`](../script/clippy) |
 | Windows source build | [`../script/windows.ps1`](../script/windows.ps1), [`../script/build-windows.ps1`](../script/build-windows.ps1); wiki [guides/windows-dev.md](guides/windows-dev.md); product [src/development/windows.md](src/development/windows.md) |
-| Product / tech specs | GitHub issues and Discussions on [synthet/zed](https://github.com/synthet/zed); no `specs/` tree |
+| Work queue / tech specs | Local Markdown provider [`../.agent/backlog/items.md`](../.agent/backlog/items.md); contract [project/00-backlog-workflow.md](project/00-backlog-workflow.md); no `specs/` tree |
+| Bundled theme attribution | [`../assets/themes/LICENSES`](../assets/themes/LICENSES) (shipped notice); engineering record [`../assets/themes/synthet/PROVENANCE.md`](../assets/themes/synthet/PROVENANCE.md) |
 | Product docs | [`src/`](src/) mdBook; docs automation [`AGENTS.md`](AGENTS.md) |
 | LLM wiki hub | [`INDEX.md`](INDEX.md); conventions [`WIKI_SCHEMA.md`](WIKI_SCHEMA.md); docs map [`technical/docs-map.md`](technical/docs-map.md) |
 | Domain skills | [`.claude/skills/gpui-test`](../.claude/skills/gpui-test), [`zed-cherry-pick`](../.claude/skills/zed-cherry-pick), [`lint-creator`](../.claude/skills/lint-creator) |

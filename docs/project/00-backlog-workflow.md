@@ -4,7 +4,7 @@ title: Backlog Workflow
 description: The canonical provider-oriented backlog contract — pick, claim, transition status, and reference work in PRs.
 resource: project/00-backlog-workflow.md
 tags: [docs, project, backlog, workflow]
-timestamp: 2026-06-16T00:00:00Z
+timestamp: 2026-08-17T00:00:00Z
 okf_version: 0.1
 ---
 
@@ -26,10 +26,12 @@ Missing GitHub Projects board IDs are not mandatory for generic projects. Fill t
 
 ## Synth Zed
 
-This repository's daily queue is **GitHub issues** on [synthet/zed](https://github.com/synthet/zed).
-Feature requests stay in GitHub Discussions; bugs use the issue templates. Do not invent a parallel
-`specs/` tree or treat [`.agent/backlog/items.md`](../../.agent/backlog/items.md) as the source of
-work. `/task-claim` is optional.
+This repository's daily queue is the **Local Markdown** provider:
+[`.agent/backlog/items.md`](../../.agent/backlog/items.md), following
+[`providers/local-markdown.md`](../../.agent/backlog/providers/local-markdown.md). GitHub Issues and
+Discussions are both disabled on [synthet/zed](https://github.com/synthet/zed), so neither is a work
+source. Claim with `/task-claim <item-ref>` and reference the local ID in the PR body
+(`Refs L-001`). Do not invent a parallel `specs/` tree.
 
 ## The five-step contract
 

@@ -10,4 +10,4 @@ okf_version: 0.1
 
 # Project governance
 
-- [00-backlog-workflow.md](00-backlog-workflow.md) — five-step contract; Synth Zed uses GitHub issues (no `specs/`, no `.agent/backlog/items.md`)
+- [00-backlog-workflow.md](00-backlog-workflow.md) — five-step contract; Synth Zed uses the Local Markdown provider, [`.agent/backlog/items.md`](../../.agent/backlog/items.md) (no `specs/` tree)

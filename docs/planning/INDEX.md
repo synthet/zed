@@ -16,4 +16,4 @@ The hybrid roadmap is the design wiki, not a second plan tree here:
 
 - [zed-warp/README.md](../zed-warp/README.md) — dual-app, bridge, port-into-Zed
 
-Product work is claimed from GitHub issues. See [project/00-backlog-workflow.md](../project/00-backlog-workflow.md).
+Product work is claimed from the Local Markdown backlog at [`.agent/backlog/items.md`](../../.agent/backlog/items.md). See [project/00-backlog-workflow.md](../project/00-backlog-workflow.md).

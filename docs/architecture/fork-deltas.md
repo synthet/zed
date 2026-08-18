@@ -4,7 +4,7 @@ title: Fork Deltas
 description: What Synth Zed removes or keeps relative to upstream Zed (commercial-free, local-first).
 resource: architecture/fork-deltas.md
 tags: [docs, architecture, fork, synth-zed]
-timestamp: 2026-08-15T17:45:00Z
+timestamp: 2026-08-17T00:00:00Z
 okf_version: 0.1
 ---
 
@@ -49,6 +49,22 @@ There is **no** in-app Billing settings page and no Stripe/Orb in this repo — 
 - Upstream **GPL-3.0-or-later** + Apache-2.0 where marked (not a license change)
 - `crates/collab` / `collab_ui` source left in-tree for possible later self-host; unwired from default UX
 
+## Themes
+
+The fork ships **35 bundled theme variants under 35 distinct names** — Zed's original 11 (Ayu,
+Gruvbox, One) plus 24 added under [`assets/themes/synthet/`](../../assets/themes/synthet/) in three
+provenance groups: MIT (Nord, Catppuccin Mocha, GitHub Dark Default), Apache-2.0 (16 from
+`warpdotdev/themes`, plus Tokyo Night and JetBrains Darcula), and AGPL-3.0-only (Adeberry,
+Phenomenon, Solar Flare, which applies to those three files only).
+
+The shipped end-user notice is [`assets/themes/LICENSES`](../../assets/themes/LICENSES) — it is
+concatenated into the generated `assets/licenses.md` behind `zed: open licenses`, so any theme added
+or removed must be reflected there. The engineering record (pinned upstream SHAs, per-theme
+verification results, documented palette adaptations) is
+[`assets/themes/synthet/PROVENANCE.md`](../../assets/themes/synthet/PROVENANCE.md), which is a repo
+doc and deliberately excluded from the binary. `crates/theme_settings/tests/synthet_default_themes.rs`
+asserts the name set and that nothing but `.json` is embedded under `themes/`.
+
 ## Identifiers
 
 | Surface | Value |
@@ -74,4 +90,4 @@ Official builds expect Spectre-mitigated MSVC libs. This fork patches `msvc_spec
 - Do not stub entitlements to Pro / unlimited credits
 - Do not depend on Warp Drive / hosted Warp AI either — see [synth-fork](../zed-warp/constraints/synth-fork.md)
 
-Work comes from GitHub issues on [synthet/zed](https://github.com/synthet/zed). No autonomous-agent PRs ([`../../CONTRIBUTING.md`](../../CONTRIBUTING.md)). Docs split: [docs-map.md](../technical/docs-map.md). Agent files after framework adopt: [agent-instruction-files.md](../technical/agent-instruction-files.md).
+Work comes from the Local Markdown backlog at [`../../.agent/backlog/items.md`](../../.agent/backlog/items.md) — GitHub Issues and Discussions are disabled on [synthet/zed](https://github.com/synthet/zed). No autonomous-agent PRs ([`../../CONTRIBUTING.md`](../../CONTRIBUTING.md)). Docs split: [docs-map.md](../technical/docs-map.md). Agent files after framework adopt: [agent-instruction-files.md](../technical/agent-instruction-files.md).
