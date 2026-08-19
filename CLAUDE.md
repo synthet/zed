@@ -26,7 +26,8 @@ work source today. Claim with `/task-claim <item-ref>` and reference the local I
 ## Architecture
 
 GPUI is the GPU UI framework. The `zed` crate is the binary entry point. This fork removes Zed Pro
-billing UI, hosted zed.dev collaboration, and telemetry sinks; BYOK / Copilot / Ollama / ACP remain.
+billing UI and telemetry sinks, and unwires hosted zed.dev collaboration (`collab` / `collab_ui`
+stay in-tree, unloaded); BYOK / Copilot / Ollama / ACP remain.
 
 | Module / component | Role |
 |--------------------|------|

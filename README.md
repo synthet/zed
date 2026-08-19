@@ -2,7 +2,7 @@
 
 A **local-first, commercial-free** fork of [Zed](https://github.com/zed-industries/zed), the high-performance code editor from the creators of [Atom](https://github.com/atom/atom) and [Tree-sitter](https://github.com/tree-sitter/tree-sitter).
 
-This fork removes Zed Pro / billing UI, hosted zed.dev collaboration and AI, and telemetry sinks. The editor, SSH remotes, extensions, and BYOK / Copilot / Ollama / ACP agents remain.
+This fork removes Zed Pro / billing UI and telemetry sinks, and unwires hosted zed.dev collaboration and AI (`collab` / `collab_ui` stay in-tree but are never loaded). The editor, SSH remotes, extensions, and BYOK / Copilot / Ollama / ACP agents remain.
 
 **Package ID:** `io.github.synthet.Zed`  
 **Upstream:** [zed-industries/zed](https://github.com/zed-industries/zed) · **Fork source:** [synthet/zed](https://github.com/synthet/zed)
