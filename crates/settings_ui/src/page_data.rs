@@ -6350,6 +6350,7 @@ fn panels_page() -> SettingsPage {
         ]
     }
 
+    #[allow(dead_code)] // Local-first: collaboration panel section kept but not shown in UI.
     fn collaboration_panel_section() -> [SettingsPageItem; 4] {
         [
             SettingsPageItem::SectionHeader("Collaboration Panel"),
@@ -6567,7 +6568,9 @@ fn panels_page() -> SettingsPage {
             outline_panel_section(),
             git_panel_section(),
             debugger_panel_section(),
-            collaboration_panel_section(),
+            // Local-first: CollabPanel is never loaded into the dock, so do not offer
+            // settings for it. See initialize_panels in crates/zed/src/zed.rs.
+            // collaboration_panel_section(),
             agent_panel_section(),
         ],
     }
