@@ -175,6 +175,7 @@ fn log_worktree_diagnostics(workspace_store: &Entity<WorkspaceStore>, cx: &App) 
     }
 }
 
+#[allow(dead_code)] // Synth Zed: caller stubbed out; kept so upstream diffs stay small.
 pub async fn upload_previous_minidumps(_client: Arc<Client>) -> anyhow::Result<()> {
     // Synth Zed: never upload minidumps / Sentry payloads.
     Ok(())
