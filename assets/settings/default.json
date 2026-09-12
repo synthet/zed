@@ -2687,7 +2687,10 @@
   },
   // The server to connect to. If the environment variable
   // ZED_SERVER_URL is set, it will override this setting.
-  "server_url": "https://zed.dev",
+  // Synth Zed is local-first: nothing autoconnects, so this defaults to a
+  // localhost placeholder instead of hosted zed.dev. Point ZED_SERVER_URL
+  // (or this value) at your own instance to opt into self-hosted collab.
+  "server_url": "http://localhost",
   // Settings overrides to use when using Zed Preview.
   // Mostly useful for developers who are managing multiple instances of Zed.
   "preview": {
