@@ -1,0 +1,660 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="0 0 1536 1024">
+  <title>Zed + Warp — JetBrains Darcula icon family</title>
+  <rect width="1536" height="1024" fill="#2B2B2B" />
+  <text x="768" y="99" font-size="76" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#D8E0EA">Zed + Warp</text>
+  <text x="768" y="146" font-size="24" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">JetBrains Darcula · Editable vector icon family</text>
+  <svg width="324" height="324" viewBox="0 0 1024 1024" role="img" x="48" y="190">
+    <defs>
+      <linearGradient id="hero-0-rim" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#9876AA" />
+        <stop offset="0.45" stop-color="#CC7832" />
+        <stop offset="1" stop-color="#FFC66D" />
+      </linearGradient>
+      <linearGradient id="hero-0-surface" x1="0" y1="0" x2="0.75" y2="1">
+        <stop stop-color="#44474A" />
+        <stop offset="0.45" stop-color="#353637" />
+        <stop offset="1" stop-color="#2B2B2B" />
+      </linearGradient>
+      <linearGradient id="hero-0-silver" x1="0" y1="0" x2="0.65" y2="1">
+        <stop stop-color="#F8FAFC" />
+        <stop offset="0.45" stop-color="#C3CFDC" />
+        <stop offset="1" stop-color="#A9B7C6" />
+      </linearGradient>
+      <linearGradient id="hero-0-bevel" x1="0" y1="0" x2="0" y2="1">
+        <stop stop-color="#FFFFFF" stop-opacity="0.52" />
+        <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08" />
+        <stop offset="1" stop-color="#000000" stop-opacity="0.4" />
+      </linearGradient>
+    </defs>
+    <g id="hero-0-foundation">
+      <rect x="64" y="64" width="896" height="896" rx="184" fill="url(#hero-0-surface)" />
+    </g>
+    <g id="hero-0-accent-rim">
+      <rect x="68" y="68" width="888" height="888" rx="180" fill="none" stroke="url(#hero-0-rim)" stroke-width="12" />
+      <rect x="70" y="70" width="884" height="884" rx="178" fill="none" stroke="url(#hero-0-bevel)" stroke-width="3" />
+    </g>
+    <g id="hero-0-glyph-shadow" fill="#141516" opacity="0.4" transform="translate(0 8)">
+      <path d="M 240,220 H 786 L 746,264 H 272 Q 264,264 264,272 V 621 L 220,665 V 244 Q 220,220 240,220 Z" />
+      <path d="M 322,310 H 698 L 658,354 H 358 Q 350,354 350,362 V 540 L 306,584 V 332 Q 306,310 322,310 Z" />
+      <path d="M 406,396 H 614 L 276,734 H 740 Q 754,734 754,720 V 370 L 798,326 V 754 Q 798,778 774,778 H 232 Q 202,778 220,752 L 554,440 H 438 V 472 L 394,516 V 414 Q 394,396 406,396 Z" />
+      <path d="M 400,650 H 660 Q 672,650 672,638 V 454 L 716,410 V 674 Q 716,694 696,694 H 356 Z" />
+      <path d="M 498,568 H 578 Q 590,568 590,556 V 536 L 634,492 V 592 Q 634,612 614,612 H 454 Z" />
+    </g>
+    <g id="hero-0-glyph" fill="url(#hero-0-silver)" stroke="url(#hero-0-bevel)" stroke-width="2" stroke-linejoin="round">
+      <path d="M 240,220 H 786 L 746,264 H 272 Q 264,264 264,272 V 621 L 220,665 V 244 Q 220,220 240,220 Z" />
+      <path d="M 322,310 H 698 L 658,354 H 358 Q 350,354 350,362 V 540 L 306,584 V 332 Q 306,310 322,310 Z" />
+      <path d="M 406,396 H 614 L 276,734 H 740 Q 754,734 754,720 V 370 L 798,326 V 754 Q 798,778 774,778 H 232 Q 202,778 220,752 L 554,440 H 438 V 472 L 394,516 V 414 Q 394,396 406,396 Z" />
+      <path d="M 400,650 H 660 Q 672,650 672,638 V 454 L 716,410 V 674 Q 716,694 696,694 H 356 Z" />
+      <path d="M 498,568 H 578 Q 590,568 590,556 V 536 L 634,492 V 592 Q 634,612 614,612 H 454 Z" />
+    </g>
+  </svg>
+  <text x="210" y="551" font-size="24" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">Zed / macOS</text>
+  <svg width="324" height="324" viewBox="0 0 1024 1024" role="img" x="420" y="190">
+    <defs>
+      <linearGradient id="hero-1-rim" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#6897BB" />
+        <stop offset="0.7" stop-color="#9876AA" />
+        <stop offset="1" stop-color="#B796C7" />
+      </linearGradient>
+      <linearGradient id="hero-1-surface" x1="0" y1="0" x2="0.75" y2="1">
+        <stop stop-color="#44474A" />
+        <stop offset="0.45" stop-color="#353637" />
+        <stop offset="1" stop-color="#2B2B2B" />
+      </linearGradient>
+      <linearGradient id="hero-1-silver" x1="0" y1="0" x2="0.65" y2="1">
+        <stop stop-color="#F8FAFC" />
+        <stop offset="0.45" stop-color="#C3CFDC" />
+        <stop offset="1" stop-color="#A9B7C6" />
+      </linearGradient>
+      <linearGradient id="hero-1-bevel" x1="0" y1="0" x2="0" y2="1">
+        <stop stop-color="#FFFFFF" stop-opacity="0.52" />
+        <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08" />
+        <stop offset="1" stop-color="#000000" stop-opacity="0.4" />
+      </linearGradient>
+    </defs>
+    <g id="hero-1-foundation">
+      <rect x="64" y="64" width="896" height="896" rx="184" fill="url(#hero-1-surface)" />
+    </g>
+    <g id="hero-1-accent-rim">
+      <rect x="68" y="68" width="888" height="888" rx="180" fill="none" stroke="url(#hero-1-rim)" stroke-width="12" />
+      <rect x="70" y="70" width="884" height="884" rx="178" fill="none" stroke="url(#hero-1-bevel)" stroke-width="3" />
+    </g>
+    <g id="hero-1-glyph-shadow" fill="#141516" opacity="0.4" transform="translate(0 8)">
+      <path d="M 274,376 H 481 Q 493,376 490,388 L 421,710 Q 419,720 409,720 H 274 Q 222,720 222,668 V 430 Q 222,376 274,376 Z" />
+      <path d="M 558,300 H 734 Q 806,300 806,370 V 598 Q 806,654 750,654 H 468 Q 458,654 461,642 L 540,312 Q 543,300 558,300 Z" />
+    </g>
+    <g id="hero-1-glyph" fill="url(#hero-1-silver)" stroke="url(#hero-1-bevel)" stroke-width="2" stroke-linejoin="round">
+      <path d="M 274,376 H 481 Q 493,376 490,388 L 421,710 Q 419,720 409,720 H 274 Q 222,720 222,668 V 430 Q 222,376 274,376 Z" />
+      <path d="M 558,300 H 734 Q 806,300 806,370 V 598 Q 806,654 750,654 H 468 Q 458,654 461,642 L 540,312 Q 543,300 558,300 Z" />
+    </g>
+  </svg>
+  <text x="582" y="551" font-size="24" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">Warp / macOS</text>
+  <svg width="324" height="324" viewBox="0 0 1024 1024" role="img" x="792" y="190">
+    <defs>
+      <linearGradient id="hero-2-rim" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#9876AA" />
+        <stop offset="0.45" stop-color="#CC7832" />
+        <stop offset="1" stop-color="#CC7832" />
+      </linearGradient>
+      <linearGradient id="hero-2-surface" x1="0" y1="0" x2="0.75" y2="1">
+        <stop stop-color="#44474A" />
+        <stop offset="0.45" stop-color="#353637" />
+        <stop offset="1" stop-color="#2B2B2B" />
+      </linearGradient>
+      <linearGradient id="hero-2-silver" x1="0" y1="0" x2="0.65" y2="1">
+        <stop stop-color="#F8FAFC" />
+        <stop offset="0.45" stop-color="#C3CFDC" />
+        <stop offset="1" stop-color="#A9B7C6" />
+      </linearGradient>
+      <linearGradient id="hero-2-bevel" x1="0" y1="0" x2="0" y2="1">
+        <stop stop-color="#FFFFFF" stop-opacity="0.52" />
+        <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08" />
+        <stop offset="1" stop-color="#000000" stop-opacity="0.4" />
+      </linearGradient>
+    </defs>
+    <g id="hero-2-foundation">
+      <rect x="64" y="64" width="896" height="896" rx="184" fill="#2B2B2B" />
+    </g>
+    <g id="hero-2-accent-rim">
+      <rect x="68" y="68" width="888" height="888" rx="180" fill="none" stroke="url(#hero-2-rim)" stroke-width="14" />
+    </g>
+    <g id="hero-2-glyph" fill="#A9B7C6">
+      <path d="M 240,220 H 786 L 746,264 H 272 Q 264,264 264,272 V 621 L 220,665 V 244 Q 220,220 240,220 Z" />
+      <path d="M 322,310 H 698 L 658,354 H 358 Q 350,354 350,362 V 540 L 306,584 V 332 Q 306,310 322,310 Z" />
+      <path d="M 406,396 H 614 L 276,734 H 740 Q 754,734 754,720 V 370 L 798,326 V 754 Q 798,778 774,778 H 232 Q 202,778 220,752 L 554,440 H 438 V 472 L 394,516 V 414 Q 394,396 406,396 Z" />
+      <path d="M 400,650 H 660 Q 672,650 672,638 V 454 L 716,410 V 674 Q 716,694 696,694 H 356 Z" />
+      <path d="M 498,568 H 578 Q 590,568 590,556 V 536 L 634,492 V 592 Q 634,612 614,612 H 454 Z" />
+    </g>
+  </svg>
+  <text x="954" y="551" font-size="24" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">Zed / Windows</text>
+  <svg width="324" height="324" viewBox="0 0 1024 1024" role="img" x="1164" y="190">
+    <defs>
+      <linearGradient id="hero-3-rim" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#6897BB" />
+        <stop offset="0.7" stop-color="#9876AA" />
+        <stop offset="1" stop-color="#9876AA" />
+      </linearGradient>
+      <linearGradient id="hero-3-surface" x1="0" y1="0" x2="0.75" y2="1">
+        <stop stop-color="#44474A" />
+        <stop offset="0.45" stop-color="#353637" />
+        <stop offset="1" stop-color="#2B2B2B" />
+      </linearGradient>
+      <linearGradient id="hero-3-silver" x1="0" y1="0" x2="0.65" y2="1">
+        <stop stop-color="#F8FAFC" />
+        <stop offset="0.45" stop-color="#C3CFDC" />
+        <stop offset="1" stop-color="#A9B7C6" />
+      </linearGradient>
+      <linearGradient id="hero-3-bevel" x1="0" y1="0" x2="0" y2="1">
+        <stop stop-color="#FFFFFF" stop-opacity="0.52" />
+        <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08" />
+        <stop offset="1" stop-color="#000000" stop-opacity="0.4" />
+      </linearGradient>
+    </defs>
+    <g id="hero-3-foundation">
+      <rect x="64" y="64" width="896" height="896" rx="184" fill="#2B2B2B" />
+    </g>
+    <g id="hero-3-accent-rim">
+      <rect x="68" y="68" width="888" height="888" rx="180" fill="none" stroke="url(#hero-3-rim)" stroke-width="14" />
+    </g>
+    <g id="hero-3-glyph" fill="#A9B7C6">
+      <path d="M 274,376 H 481 Q 493,376 490,388 L 421,710 Q 419,720 409,720 H 274 Q 222,720 222,668 V 430 Q 222,376 274,376 Z" />
+      <path d="M 558,300 H 734 Q 806,300 806,370 V 598 Q 806,654 750,654 H 468 Q 458,654 461,642 L 540,312 Q 543,300 558,300 Z" />
+    </g>
+  </svg>
+  <text x="1326" y="551" font-size="24" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">Warp / Windows</text>
+  <path d="M 64 585 H 1472" stroke="#44474A" fill="none" />
+  <text x="768" y="626" font-size="22" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">Small-size previews · 64 px and 32 px at native sheet size</text>
+  <svg width="64" height="64" viewBox="0 0 1024 1024" role="img" x="144" y="650">
+    <defs>
+      <linearGradient id="small-0-64-rim" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#9876AA" />
+        <stop offset="0.45" stop-color="#CC7832" />
+        <stop offset="1" stop-color="#FFC66D" />
+      </linearGradient>
+      <linearGradient id="small-0-64-surface" x1="0" y1="0" x2="0.75" y2="1">
+        <stop stop-color="#44474A" />
+        <stop offset="0.45" stop-color="#353637" />
+        <stop offset="1" stop-color="#2B2B2B" />
+      </linearGradient>
+      <linearGradient id="small-0-64-silver" x1="0" y1="0" x2="0.65" y2="1">
+        <stop stop-color="#F8FAFC" />
+        <stop offset="0.45" stop-color="#C3CFDC" />
+        <stop offset="1" stop-color="#A9B7C6" />
+      </linearGradient>
+      <linearGradient id="small-0-64-bevel" x1="0" y1="0" x2="0" y2="1">
+        <stop stop-color="#FFFFFF" stop-opacity="0.52" />
+        <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08" />
+        <stop offset="1" stop-color="#000000" stop-opacity="0.4" />
+      </linearGradient>
+    </defs>
+    <g id="small-0-64-foundation">
+      <rect x="64" y="64" width="896" height="896" rx="184" fill="url(#small-0-64-surface)" />
+    </g>
+    <g id="small-0-64-accent-rim">
+      <rect x="68" y="68" width="888" height="888" rx="180" fill="none" stroke="url(#small-0-64-rim)" stroke-width="12" />
+      <rect x="70" y="70" width="884" height="884" rx="178" fill="none" stroke="url(#small-0-64-bevel)" stroke-width="3" />
+    </g>
+    <g id="small-0-64-glyph-shadow" fill="#141516" opacity="0.4" transform="translate(0 8)">
+      <path d="M 240,220 H 786 L 746,264 H 272 Q 264,264 264,272 V 621 L 220,665 V 244 Q 220,220 240,220 Z" />
+      <path d="M 322,310 H 698 L 658,354 H 358 Q 350,354 350,362 V 540 L 306,584 V 332 Q 306,310 322,310 Z" />
+      <path d="M 406,396 H 614 L 276,734 H 740 Q 754,734 754,720 V 370 L 798,326 V 754 Q 798,778 774,778 H 232 Q 202,778 220,752 L 554,440 H 438 V 472 L 394,516 V 414 Q 394,396 406,396 Z" />
+      <path d="M 400,650 H 660 Q 672,650 672,638 V 454 L 716,410 V 674 Q 716,694 696,694 H 356 Z" />
+      <path d="M 498,568 H 578 Q 590,568 590,556 V 536 L 634,492 V 592 Q 634,612 614,612 H 454 Z" />
+    </g>
+    <g id="small-0-64-glyph" fill="url(#small-0-64-silver)" stroke="url(#small-0-64-bevel)" stroke-width="2" stroke-linejoin="round">
+      <path d="M 240,220 H 786 L 746,264 H 272 Q 264,264 264,272 V 621 L 220,665 V 244 Q 220,220 240,220 Z" />
+      <path d="M 322,310 H 698 L 658,354 H 358 Q 350,354 350,362 V 540 L 306,584 V 332 Q 306,310 322,310 Z" />
+      <path d="M 406,396 H 614 L 276,734 H 740 Q 754,734 754,720 V 370 L 798,326 V 754 Q 798,778 774,778 H 232 Q 202,778 220,752 L 554,440 H 438 V 472 L 394,516 V 414 Q 394,396 406,396 Z" />
+      <path d="M 400,650 H 660 Q 672,650 672,638 V 454 L 716,410 V 674 Q 716,694 696,694 H 356 Z" />
+      <path d="M 498,568 H 578 Q 590,568 590,556 V 536 L 634,492 V 592 Q 634,612 614,612 H 454 Z" />
+    </g>
+  </svg>
+  <text x="176.0" y="744" font-size="16" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">64</text>
+  <svg width="32" height="32" viewBox="0 0 1024 1024" role="img" x="248" y="682">
+    <defs>
+      <linearGradient id="small-0-32-rim" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#9876AA" />
+        <stop offset="0.45" stop-color="#CC7832" />
+        <stop offset="1" stop-color="#FFC66D" />
+      </linearGradient>
+      <linearGradient id="small-0-32-surface" x1="0" y1="0" x2="0.75" y2="1">
+        <stop stop-color="#44474A" />
+        <stop offset="0.45" stop-color="#353637" />
+        <stop offset="1" stop-color="#2B2B2B" />
+      </linearGradient>
+      <linearGradient id="small-0-32-silver" x1="0" y1="0" x2="0.65" y2="1">
+        <stop stop-color="#F8FAFC" />
+        <stop offset="0.45" stop-color="#C3CFDC" />
+        <stop offset="1" stop-color="#A9B7C6" />
+      </linearGradient>
+      <linearGradient id="small-0-32-bevel" x1="0" y1="0" x2="0" y2="1">
+        <stop stop-color="#FFFFFF" stop-opacity="0.52" />
+        <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08" />
+        <stop offset="1" stop-color="#000000" stop-opacity="0.4" />
+      </linearGradient>
+    </defs>
+    <g id="small-0-32-foundation">
+      <rect x="64" y="64" width="896" height="896" rx="184" fill="url(#small-0-32-surface)" />
+    </g>
+    <g id="small-0-32-accent-rim">
+      <rect x="68" y="68" width="888" height="888" rx="180" fill="none" stroke="url(#small-0-32-rim)" stroke-width="12" />
+      <rect x="70" y="70" width="884" height="884" rx="178" fill="none" stroke="url(#small-0-32-bevel)" stroke-width="3" />
+    </g>
+    <g id="small-0-32-glyph-shadow" fill="#141516" opacity="0.4" transform="translate(0 8)">
+      <path d="M 240,220 H 786 L 746,264 H 272 Q 264,264 264,272 V 621 L 220,665 V 244 Q 220,220 240,220 Z" />
+      <path d="M 322,310 H 698 L 658,354 H 358 Q 350,354 350,362 V 540 L 306,584 V 332 Q 306,310 322,310 Z" />
+      <path d="M 406,396 H 614 L 276,734 H 740 Q 754,734 754,720 V 370 L 798,326 V 754 Q 798,778 774,778 H 232 Q 202,778 220,752 L 554,440 H 438 V 472 L 394,516 V 414 Q 394,396 406,396 Z" />
+      <path d="M 400,650 H 660 Q 672,650 672,638 V 454 L 716,410 V 674 Q 716,694 696,694 H 356 Z" />
+      <path d="M 498,568 H 578 Q 590,568 590,556 V 536 L 634,492 V 592 Q 634,612 614,612 H 454 Z" />
+    </g>
+    <g id="small-0-32-glyph" fill="url(#small-0-32-silver)" stroke="url(#small-0-32-bevel)" stroke-width="2" stroke-linejoin="round">
+      <path d="M 240,220 H 786 L 746,264 H 272 Q 264,264 264,272 V 621 L 220,665 V 244 Q 220,220 240,220 Z" />
+      <path d="M 322,310 H 698 L 658,354 H 358 Q 350,354 350,362 V 540 L 306,584 V 332 Q 306,310 322,310 Z" />
+      <path d="M 406,396 H 614 L 276,734 H 740 Q 754,734 754,720 V 370 L 798,326 V 754 Q 798,778 774,778 H 232 Q 202,778 220,752 L 554,440 H 438 V 472 L 394,516 V 414 Q 394,396 406,396 Z" />
+      <path d="M 400,650 H 660 Q 672,650 672,638 V 454 L 716,410 V 674 Q 716,694 696,694 H 356 Z" />
+      <path d="M 498,568 H 578 Q 590,568 590,556 V 536 L 634,492 V 592 Q 634,612 614,612 H 454 Z" />
+    </g>
+  </svg>
+  <text x="264.0" y="744" font-size="16" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">32</text>
+  <svg width="64" height="64" viewBox="0 0 1024 1024" role="img" x="516" y="650">
+    <defs>
+      <linearGradient id="small-1-64-rim" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#6897BB" />
+        <stop offset="0.7" stop-color="#9876AA" />
+        <stop offset="1" stop-color="#B796C7" />
+      </linearGradient>
+      <linearGradient id="small-1-64-surface" x1="0" y1="0" x2="0.75" y2="1">
+        <stop stop-color="#44474A" />
+        <stop offset="0.45" stop-color="#353637" />
+        <stop offset="1" stop-color="#2B2B2B" />
+      </linearGradient>
+      <linearGradient id="small-1-64-silver" x1="0" y1="0" x2="0.65" y2="1">
+        <stop stop-color="#F8FAFC" />
+        <stop offset="0.45" stop-color="#C3CFDC" />
+        <stop offset="1" stop-color="#A9B7C6" />
+      </linearGradient>
+      <linearGradient id="small-1-64-bevel" x1="0" y1="0" x2="0" y2="1">
+        <stop stop-color="#FFFFFF" stop-opacity="0.52" />
+        <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08" />
+        <stop offset="1" stop-color="#000000" stop-opacity="0.4" />
+      </linearGradient>
+    </defs>
+    <g id="small-1-64-foundation">
+      <rect x="64" y="64" width="896" height="896" rx="184" fill="url(#small-1-64-surface)" />
+    </g>
+    <g id="small-1-64-accent-rim">
+      <rect x="68" y="68" width="888" height="888" rx="180" fill="none" stroke="url(#small-1-64-rim)" stroke-width="12" />
+      <rect x="70" y="70" width="884" height="884" rx="178" fill="none" stroke="url(#small-1-64-bevel)" stroke-width="3" />
+    </g>
+    <g id="small-1-64-glyph-shadow" fill="#141516" opacity="0.4" transform="translate(0 8)">
+      <path d="M 274,376 H 481 Q 493,376 490,388 L 421,710 Q 419,720 409,720 H 274 Q 222,720 222,668 V 430 Q 222,376 274,376 Z" />
+      <path d="M 558,300 H 734 Q 806,300 806,370 V 598 Q 806,654 750,654 H 468 Q 458,654 461,642 L 540,312 Q 543,300 558,300 Z" />
+    </g>
+    <g id="small-1-64-glyph" fill="url(#small-1-64-silver)" stroke="url(#small-1-64-bevel)" stroke-width="2" stroke-linejoin="round">
+      <path d="M 274,376 H 481 Q 493,376 490,388 L 421,710 Q 419,720 409,720 H 274 Q 222,720 222,668 V 430 Q 222,376 274,376 Z" />
+      <path d="M 558,300 H 734 Q 806,300 806,370 V 598 Q 806,654 750,654 H 468 Q 458,654 461,642 L 540,312 Q 543,300 558,300 Z" />
+    </g>
+  </svg>
+  <text x="548.0" y="744" font-size="16" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">64</text>
+  <svg width="32" height="32" viewBox="0 0 1024 1024" role="img" x="620" y="682">
+    <defs>
+      <linearGradient id="small-1-32-rim" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#6897BB" />
+        <stop offset="0.7" stop-color="#9876AA" />
+        <stop offset="1" stop-color="#B796C7" />
+      </linearGradient>
+      <linearGradient id="small-1-32-surface" x1="0" y1="0" x2="0.75" y2="1">
+        <stop stop-color="#44474A" />
+        <stop offset="0.45" stop-color="#353637" />
+        <stop offset="1" stop-color="#2B2B2B" />
+      </linearGradient>
+      <linearGradient id="small-1-32-silver" x1="0" y1="0" x2="0.65" y2="1">
+        <stop stop-color="#F8FAFC" />
+        <stop offset="0.45" stop-color="#C3CFDC" />
+        <stop offset="1" stop-color="#A9B7C6" />
+      </linearGradient>
+      <linearGradient id="small-1-32-bevel" x1="0" y1="0" x2="0" y2="1">
+        <stop stop-color="#FFFFFF" stop-opacity="0.52" />
+        <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08" />
+        <stop offset="1" stop-color="#000000" stop-opacity="0.4" />
+      </linearGradient>
+    </defs>
+    <g id="small-1-32-foundation">
+      <rect x="64" y="64" width="896" height="896" rx="184" fill="url(#small-1-32-surface)" />
+    </g>
+    <g id="small-1-32-accent-rim">
+      <rect x="68" y="68" width="888" height="888" rx="180" fill="none" stroke="url(#small-1-32-rim)" stroke-width="12" />
+      <rect x="70" y="70" width="884" height="884" rx="178" fill="none" stroke="url(#small-1-32-bevel)" stroke-width="3" />
+    </g>
+    <g id="small-1-32-glyph-shadow" fill="#141516" opacity="0.4" transform="translate(0 8)">
+      <path d="M 274,376 H 481 Q 493,376 490,388 L 421,710 Q 419,720 409,720 H 274 Q 222,720 222,668 V 430 Q 222,376 274,376 Z" />
+      <path d="M 558,300 H 734 Q 806,300 806,370 V 598 Q 806,654 750,654 H 468 Q 458,654 461,642 L 540,312 Q 543,300 558,300 Z" />
+    </g>
+    <g id="small-1-32-glyph" fill="url(#small-1-32-silver)" stroke="url(#small-1-32-bevel)" stroke-width="2" stroke-linejoin="round">
+      <path d="M 274,376 H 481 Q 493,376 490,388 L 421,710 Q 419,720 409,720 H 274 Q 222,720 222,668 V 430 Q 222,376 274,376 Z" />
+      <path d="M 558,300 H 734 Q 806,300 806,370 V 598 Q 806,654 750,654 H 468 Q 458,654 461,642 L 540,312 Q 543,300 558,300 Z" />
+    </g>
+  </svg>
+  <text x="636.0" y="744" font-size="16" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">32</text>
+  <svg width="64" height="64" viewBox="0 0 1024 1024" role="img" x="888" y="650">
+    <defs>
+      <linearGradient id="small-2-64-rim" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#9876AA" />
+        <stop offset="0.45" stop-color="#CC7832" />
+        <stop offset="1" stop-color="#CC7832" />
+      </linearGradient>
+      <linearGradient id="small-2-64-surface" x1="0" y1="0" x2="0.75" y2="1">
+        <stop stop-color="#44474A" />
+        <stop offset="0.45" stop-color="#353637" />
+        <stop offset="1" stop-color="#2B2B2B" />
+      </linearGradient>
+      <linearGradient id="small-2-64-silver" x1="0" y1="0" x2="0.65" y2="1">
+        <stop stop-color="#F8FAFC" />
+        <stop offset="0.45" stop-color="#C3CFDC" />
+        <stop offset="1" stop-color="#A9B7C6" />
+      </linearGradient>
+      <linearGradient id="small-2-64-bevel" x1="0" y1="0" x2="0" y2="1">
+        <stop stop-color="#FFFFFF" stop-opacity="0.52" />
+        <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08" />
+        <stop offset="1" stop-color="#000000" stop-opacity="0.4" />
+      </linearGradient>
+    </defs>
+    <g id="small-2-64-foundation">
+      <rect x="64" y="64" width="896" height="896" rx="184" fill="#2B2B2B" />
+    </g>
+    <g id="small-2-64-accent-rim">
+      <rect x="68" y="68" width="888" height="888" rx="180" fill="none" stroke="url(#small-2-64-rim)" stroke-width="14" />
+    </g>
+    <g id="small-2-64-glyph" fill="#A9B7C6">
+      <path d="M 240,220 H 786 L 746,264 H 272 Q 264,264 264,272 V 621 L 220,665 V 244 Q 220,220 240,220 Z" />
+      <path d="M 322,310 H 698 L 658,354 H 358 Q 350,354 350,362 V 540 L 306,584 V 332 Q 306,310 322,310 Z" />
+      <path d="M 406,396 H 614 L 276,734 H 740 Q 754,734 754,720 V 370 L 798,326 V 754 Q 798,778 774,778 H 232 Q 202,778 220,752 L 554,440 H 438 V 472 L 394,516 V 414 Q 394,396 406,396 Z" />
+      <path d="M 400,650 H 660 Q 672,650 672,638 V 454 L 716,410 V 674 Q 716,694 696,694 H 356 Z" />
+      <path d="M 498,568 H 578 Q 590,568 590,556 V 536 L 634,492 V 592 Q 634,612 614,612 H 454 Z" />
+    </g>
+  </svg>
+  <text x="920.0" y="744" font-size="16" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">64</text>
+  <svg width="32" height="32" viewBox="0 0 1024 1024" role="img" x="992" y="682">
+    <defs>
+      <linearGradient id="small-2-32-rim" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#9876AA" />
+        <stop offset="0.45" stop-color="#CC7832" />
+        <stop offset="1" stop-color="#CC7832" />
+      </linearGradient>
+      <linearGradient id="small-2-32-surface" x1="0" y1="0" x2="0.75" y2="1">
+        <stop stop-color="#44474A" />
+        <stop offset="0.45" stop-color="#353637" />
+        <stop offset="1" stop-color="#2B2B2B" />
+      </linearGradient>
+      <linearGradient id="small-2-32-silver" x1="0" y1="0" x2="0.65" y2="1">
+        <stop stop-color="#F8FAFC" />
+        <stop offset="0.45" stop-color="#C3CFDC" />
+        <stop offset="1" stop-color="#A9B7C6" />
+      </linearGradient>
+      <linearGradient id="small-2-32-bevel" x1="0" y1="0" x2="0" y2="1">
+        <stop stop-color="#FFFFFF" stop-opacity="0.52" />
+        <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08" />
+        <stop offset="1" stop-color="#000000" stop-opacity="0.4" />
+      </linearGradient>
+    </defs>
+    <g id="small-2-32-foundation">
+      <rect x="64" y="64" width="896" height="896" rx="184" fill="#2B2B2B" />
+    </g>
+    <g id="small-2-32-accent-rim">
+      <rect x="68" y="68" width="888" height="888" rx="180" fill="none" stroke="url(#small-2-32-rim)" stroke-width="14" />
+    </g>
+    <g id="small-2-32-glyph" fill="#A9B7C6">
+      <path d="M 240,220 H 786 L 746,264 H 272 Q 264,264 264,272 V 621 L 220,665 V 244 Q 220,220 240,220 Z" />
+      <path d="M 322,310 H 698 L 658,354 H 358 Q 350,354 350,362 V 540 L 306,584 V 332 Q 306,310 322,310 Z" />
+      <path d="M 406,396 H 614 L 276,734 H 740 Q 754,734 754,720 V 370 L 798,326 V 754 Q 798,778 774,778 H 232 Q 202,778 220,752 L 554,440 H 438 V 472 L 394,516 V 414 Q 394,396 406,396 Z" />
+      <path d="M 400,650 H 660 Q 672,650 672,638 V 454 L 716,410 V 674 Q 716,694 696,694 H 356 Z" />
+      <path d="M 498,568 H 578 Q 590,568 590,556 V 536 L 634,492 V 592 Q 634,612 614,612 H 454 Z" />
+    </g>
+  </svg>
+  <text x="1008.0" y="744" font-size="16" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">32</text>
+  <svg width="64" height="64" viewBox="0 0 1024 1024" role="img" x="1260" y="650">
+    <defs>
+      <linearGradient id="small-3-64-rim" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#6897BB" />
+        <stop offset="0.7" stop-color="#9876AA" />
+        <stop offset="1" stop-color="#9876AA" />
+      </linearGradient>
+      <linearGradient id="small-3-64-surface" x1="0" y1="0" x2="0.75" y2="1">
+        <stop stop-color="#44474A" />
+        <stop offset="0.45" stop-color="#353637" />
+        <stop offset="1" stop-color="#2B2B2B" />
+      </linearGradient>
+      <linearGradient id="small-3-64-silver" x1="0" y1="0" x2="0.65" y2="1">
+        <stop stop-color="#F8FAFC" />
+        <stop offset="0.45" stop-color="#C3CFDC" />
+        <stop offset="1" stop-color="#A9B7C6" />
+      </linearGradient>
+      <linearGradient id="small-3-64-bevel" x1="0" y1="0" x2="0" y2="1">
+        <stop stop-color="#FFFFFF" stop-opacity="0.52" />
+        <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08" />
+        <stop offset="1" stop-color="#000000" stop-opacity="0.4" />
+      </linearGradient>
+    </defs>
+    <g id="small-3-64-foundation">
+      <rect x="64" y="64" width="896" height="896" rx="184" fill="#2B2B2B" />
+    </g>
+    <g id="small-3-64-accent-rim">
+      <rect x="68" y="68" width="888" height="888" rx="180" fill="none" stroke="url(#small-3-64-rim)" stroke-width="14" />
+    </g>
+    <g id="small-3-64-glyph" fill="#A9B7C6">
+      <path d="M 274,376 H 481 Q 493,376 490,388 L 421,710 Q 419,720 409,720 H 274 Q 222,720 222,668 V 430 Q 222,376 274,376 Z" />
+      <path d="M 558,300 H 734 Q 806,300 806,370 V 598 Q 806,654 750,654 H 468 Q 458,654 461,642 L 540,312 Q 543,300 558,300 Z" />
+    </g>
+  </svg>
+  <text x="1292.0" y="744" font-size="16" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">64</text>
+  <svg width="32" height="32" viewBox="0 0 1024 1024" role="img" x="1364" y="682">
+    <defs>
+      <linearGradient id="small-3-32-rim" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#6897BB" />
+        <stop offset="0.7" stop-color="#9876AA" />
+        <stop offset="1" stop-color="#9876AA" />
+      </linearGradient>
+      <linearGradient id="small-3-32-surface" x1="0" y1="0" x2="0.75" y2="1">
+        <stop stop-color="#44474A" />
+        <stop offset="0.45" stop-color="#353637" />
+        <stop offset="1" stop-color="#2B2B2B" />
+      </linearGradient>
+      <linearGradient id="small-3-32-silver" x1="0" y1="0" x2="0.65" y2="1">
+        <stop stop-color="#F8FAFC" />
+        <stop offset="0.45" stop-color="#C3CFDC" />
+        <stop offset="1" stop-color="#A9B7C6" />
+      </linearGradient>
+      <linearGradient id="small-3-32-bevel" x1="0" y1="0" x2="0" y2="1">
+        <stop stop-color="#FFFFFF" stop-opacity="0.52" />
+        <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08" />
+        <stop offset="1" stop-color="#000000" stop-opacity="0.4" />
+      </linearGradient>
+    </defs>
+    <g id="small-3-32-foundation">
+      <rect x="64" y="64" width="896" height="896" rx="184" fill="#2B2B2B" />
+    </g>
+    <g id="small-3-32-accent-rim">
+      <rect x="68" y="68" width="888" height="888" rx="180" fill="none" stroke="url(#small-3-32-rim)" stroke-width="14" />
+    </g>
+    <g id="small-3-32-glyph" fill="#A9B7C6">
+      <path d="M 274,376 H 481 Q 493,376 490,388 L 421,710 Q 419,720 409,720 H 274 Q 222,720 222,668 V 430 Q 222,376 274,376 Z" />
+      <path d="M 558,300 H 734 Q 806,300 806,370 V 598 Q 806,654 750,654 H 468 Q 458,654 461,642 L 540,312 Q 543,300 558,300 Z" />
+    </g>
+  </svg>
+  <text x="1380.0" y="744" font-size="16" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">32</text>
+  <path d="M 64 779 H 1472" stroke="#44474A" fill="none" />
+  <text x="64" y="822" font-size="22" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">Palette</text>
+  <rect x="64" y="851" width="76" height="66" rx="10" fill="#2B2B2B" stroke="#575C61" />
+  <text x="102" y="945" font-size="15" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">#2B2B2B</text>
+  <rect x="168" y="851" width="76" height="66" rx="10" fill="#353637" stroke="#575C61" />
+  <text x="206" y="945" font-size="15" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">#353637</text>
+  <rect x="272" y="851" width="76" height="66" rx="10" fill="#A9B7C6" stroke="#575C61" />
+  <text x="310" y="945" font-size="15" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">#A9B7C6</text>
+  <rect x="376" y="851" width="76" height="66" rx="10" fill="#CC7832" stroke="#575C61" />
+  <text x="414" y="945" font-size="15" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">#CC7832</text>
+  <rect x="480" y="851" width="76" height="66" rx="10" fill="#9876AA" stroke="#575C61" />
+  <text x="518" y="945" font-size="15" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">#9876AA</text>
+  <rect x="584" y="851" width="76" height="66" rx="10" fill="#6897BB" stroke="#575C61" />
+  <text x="622" y="945" font-size="15" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">#6897BB</text>
+  <text x="907" y="822" font-size="22" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">Dock concept</text>
+  <rect x="786" y="850" width="242" height="104" rx="20" fill="#353637" stroke="#44474A" />
+  <svg width="72" height="72" viewBox="0 0 1024 1024" role="img" x="817" y="866">
+    <defs>
+      <linearGradient id="context-0-0-rim" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#9876AA" />
+        <stop offset="0.45" stop-color="#CC7832" />
+        <stop offset="1" stop-color="#FFC66D" />
+      </linearGradient>
+      <linearGradient id="context-0-0-surface" x1="0" y1="0" x2="0.75" y2="1">
+        <stop stop-color="#44474A" />
+        <stop offset="0.45" stop-color="#353637" />
+        <stop offset="1" stop-color="#2B2B2B" />
+      </linearGradient>
+      <linearGradient id="context-0-0-silver" x1="0" y1="0" x2="0.65" y2="1">
+        <stop stop-color="#F8FAFC" />
+        <stop offset="0.45" stop-color="#C3CFDC" />
+        <stop offset="1" stop-color="#A9B7C6" />
+      </linearGradient>
+      <linearGradient id="context-0-0-bevel" x1="0" y1="0" x2="0" y2="1">
+        <stop stop-color="#FFFFFF" stop-opacity="0.52" />
+        <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08" />
+        <stop offset="1" stop-color="#000000" stop-opacity="0.4" />
+      </linearGradient>
+    </defs>
+    <g id="context-0-0-foundation">
+      <rect x="64" y="64" width="896" height="896" rx="184" fill="url(#context-0-0-surface)" />
+    </g>
+    <g id="context-0-0-accent-rim">
+      <rect x="68" y="68" width="888" height="888" rx="180" fill="none" stroke="url(#context-0-0-rim)" stroke-width="12" />
+      <rect x="70" y="70" width="884" height="884" rx="178" fill="none" stroke="url(#context-0-0-bevel)" stroke-width="3" />
+    </g>
+    <g id="context-0-0-glyph-shadow" fill="#141516" opacity="0.4" transform="translate(0 8)">
+      <path d="M 240,220 H 786 L 746,264 H 272 Q 264,264 264,272 V 621 L 220,665 V 244 Q 220,220 240,220 Z" />
+      <path d="M 322,310 H 698 L 658,354 H 358 Q 350,354 350,362 V 540 L 306,584 V 332 Q 306,310 322,310 Z" />
+      <path d="M 406,396 H 614 L 276,734 H 740 Q 754,734 754,720 V 370 L 798,326 V 754 Q 798,778 774,778 H 232 Q 202,778 220,752 L 554,440 H 438 V 472 L 394,516 V 414 Q 394,396 406,396 Z" />
+      <path d="M 400,650 H 660 Q 672,650 672,638 V 454 L 716,410 V 674 Q 716,694 696,694 H 356 Z" />
+      <path d="M 498,568 H 578 Q 590,568 590,556 V 536 L 634,492 V 592 Q 634,612 614,612 H 454 Z" />
+    </g>
+    <g id="context-0-0-glyph" fill="url(#context-0-0-silver)" stroke="url(#context-0-0-bevel)" stroke-width="2" stroke-linejoin="round">
+      <path d="M 240,220 H 786 L 746,264 H 272 Q 264,264 264,272 V 621 L 220,665 V 244 Q 220,220 240,220 Z" />
+      <path d="M 322,310 H 698 L 658,354 H 358 Q 350,354 350,362 V 540 L 306,584 V 332 Q 306,310 322,310 Z" />
+      <path d="M 406,396 H 614 L 276,734 H 740 Q 754,734 754,720 V 370 L 798,326 V 754 Q 798,778 774,778 H 232 Q 202,778 220,752 L 554,440 H 438 V 472 L 394,516 V 414 Q 394,396 406,396 Z" />
+      <path d="M 400,650 H 660 Q 672,650 672,638 V 454 L 716,410 V 674 Q 716,694 696,694 H 356 Z" />
+      <path d="M 498,568 H 578 Q 590,568 590,556 V 536 L 634,492 V 592 Q 634,612 614,612 H 454 Z" />
+    </g>
+  </svg>
+  <svg width="72" height="72" viewBox="0 0 1024 1024" role="img" x="923" y="866">
+    <defs>
+      <linearGradient id="context-0-1-rim" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#6897BB" />
+        <stop offset="0.7" stop-color="#9876AA" />
+        <stop offset="1" stop-color="#B796C7" />
+      </linearGradient>
+      <linearGradient id="context-0-1-surface" x1="0" y1="0" x2="0.75" y2="1">
+        <stop stop-color="#44474A" />
+        <stop offset="0.45" stop-color="#353637" />
+        <stop offset="1" stop-color="#2B2B2B" />
+      </linearGradient>
+      <linearGradient id="context-0-1-silver" x1="0" y1="0" x2="0.65" y2="1">
+        <stop stop-color="#F8FAFC" />
+        <stop offset="0.45" stop-color="#C3CFDC" />
+        <stop offset="1" stop-color="#A9B7C6" />
+      </linearGradient>
+      <linearGradient id="context-0-1-bevel" x1="0" y1="0" x2="0" y2="1">
+        <stop stop-color="#FFFFFF" stop-opacity="0.52" />
+        <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08" />
+        <stop offset="1" stop-color="#000000" stop-opacity="0.4" />
+      </linearGradient>
+    </defs>
+    <g id="context-0-1-foundation">
+      <rect x="64" y="64" width="896" height="896" rx="184" fill="url(#context-0-1-surface)" />
+    </g>
+    <g id="context-0-1-accent-rim">
+      <rect x="68" y="68" width="888" height="888" rx="180" fill="none" stroke="url(#context-0-1-rim)" stroke-width="12" />
+      <rect x="70" y="70" width="884" height="884" rx="178" fill="none" stroke="url(#context-0-1-bevel)" stroke-width="3" />
+    </g>
+    <g id="context-0-1-glyph-shadow" fill="#141516" opacity="0.4" transform="translate(0 8)">
+      <path d="M 274,376 H 481 Q 493,376 490,388 L 421,710 Q 419,720 409,720 H 274 Q 222,720 222,668 V 430 Q 222,376 274,376 Z" />
+      <path d="M 558,300 H 734 Q 806,300 806,370 V 598 Q 806,654 750,654 H 468 Q 458,654 461,642 L 540,312 Q 543,300 558,300 Z" />
+    </g>
+    <g id="context-0-1-glyph" fill="url(#context-0-1-silver)" stroke="url(#context-0-1-bevel)" stroke-width="2" stroke-linejoin="round">
+      <path d="M 274,376 H 481 Q 493,376 490,388 L 421,710 Q 419,720 409,720 H 274 Q 222,720 222,668 V 430 Q 222,376 274,376 Z" />
+      <path d="M 558,300 H 734 Q 806,300 806,370 V 598 Q 806,654 750,654 H 468 Q 458,654 461,642 L 540,312 Q 543,300 558,300 Z" />
+    </g>
+  </svg>
+  <text x="1291" y="822" font-size="22" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">Taskbar concept</text>
+  <rect x="1170" y="850" width="242" height="104" rx="20" fill="#353637" stroke="#44474A" />
+  <svg width="72" height="72" viewBox="0 0 1024 1024" role="img" x="1201" y="866">
+    <defs>
+      <linearGradient id="context-2-0-rim" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#9876AA" />
+        <stop offset="0.45" stop-color="#CC7832" />
+        <stop offset="1" stop-color="#CC7832" />
+      </linearGradient>
+      <linearGradient id="context-2-0-surface" x1="0" y1="0" x2="0.75" y2="1">
+        <stop stop-color="#44474A" />
+        <stop offset="0.45" stop-color="#353637" />
+        <stop offset="1" stop-color="#2B2B2B" />
+      </linearGradient>
+      <linearGradient id="context-2-0-silver" x1="0" y1="0" x2="0.65" y2="1">
+        <stop stop-color="#F8FAFC" />
+        <stop offset="0.45" stop-color="#C3CFDC" />
+        <stop offset="1" stop-color="#A9B7C6" />
+      </linearGradient>
+      <linearGradient id="context-2-0-bevel" x1="0" y1="0" x2="0" y2="1">
+        <stop stop-color="#FFFFFF" stop-opacity="0.52" />
+        <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08" />
+        <stop offset="1" stop-color="#000000" stop-opacity="0.4" />
+      </linearGradient>
+    </defs>
+    <g id="context-2-0-foundation">
+      <rect x="64" y="64" width="896" height="896" rx="184" fill="#2B2B2B" />
+    </g>
+    <g id="context-2-0-accent-rim">
+      <rect x="68" y="68" width="888" height="888" rx="180" fill="none" stroke="url(#context-2-0-rim)" stroke-width="14" />
+    </g>
+    <g id="context-2-0-glyph" fill="#A9B7C6">
+      <path d="M 240,220 H 786 L 746,264 H 272 Q 264,264 264,272 V 621 L 220,665 V 244 Q 220,220 240,220 Z" />
+      <path d="M 322,310 H 698 L 658,354 H 358 Q 350,354 350,362 V 540 L 306,584 V 332 Q 306,310 322,310 Z" />
+      <path d="M 406,396 H 614 L 276,734 H 740 Q 754,734 754,720 V 370 L 798,326 V 754 Q 798,778 774,778 H 232 Q 202,778 220,752 L 554,440 H 438 V 472 L 394,516 V 414 Q 394,396 406,396 Z" />
+      <path d="M 400,650 H 660 Q 672,650 672,638 V 454 L 716,410 V 674 Q 716,694 696,694 H 356 Z" />
+      <path d="M 498,568 H 578 Q 590,568 590,556 V 536 L 634,492 V 592 Q 634,612 614,612 H 454 Z" />
+    </g>
+  </svg>
+  <svg width="72" height="72" viewBox="0 0 1024 1024" role="img" x="1307" y="866">
+    <defs>
+      <linearGradient id="context-2-1-rim" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#6897BB" />
+        <stop offset="0.7" stop-color="#9876AA" />
+        <stop offset="1" stop-color="#9876AA" />
+      </linearGradient>
+      <linearGradient id="context-2-1-surface" x1="0" y1="0" x2="0.75" y2="1">
+        <stop stop-color="#44474A" />
+        <stop offset="0.45" stop-color="#353637" />
+        <stop offset="1" stop-color="#2B2B2B" />
+      </linearGradient>
+      <linearGradient id="context-2-1-silver" x1="0" y1="0" x2="0.65" y2="1">
+        <stop stop-color="#F8FAFC" />
+        <stop offset="0.45" stop-color="#C3CFDC" />
+        <stop offset="1" stop-color="#A9B7C6" />
+      </linearGradient>
+      <linearGradient id="context-2-1-bevel" x1="0" y1="0" x2="0" y2="1">
+        <stop stop-color="#FFFFFF" stop-opacity="0.52" />
+        <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08" />
+        <stop offset="1" stop-color="#000000" stop-opacity="0.4" />
+      </linearGradient>
+    </defs>
+    <g id="context-2-1-foundation">
+      <rect x="64" y="64" width="896" height="896" rx="184" fill="#2B2B2B" />
+    </g>
+    <g id="context-2-1-accent-rim">
+      <rect x="68" y="68" width="888" height="888" rx="180" fill="none" stroke="url(#context-2-1-rim)" stroke-width="14" />
+    </g>
+    <g id="context-2-1-glyph" fill="#A9B7C6">
+      <path d="M 274,376 H 481 Q 493,376 490,388 L 421,710 Q 419,720 409,720 H 274 Q 222,720 222,668 V 430 Q 222,376 274,376 Z" />
+      <path d="M 558,300 H 734 Q 806,300 806,370 V 598 Q 806,654 750,654 H 468 Q 458,654 461,642 L 540,312 Q 543,300 558,300 Z" />
+    </g>
+  </svg>
+  <text x="1472" y="997" font-size="16" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" fill="#A9B7C6">Vector sources · Badges removed · Native packaging pending</text>
+</svg>
