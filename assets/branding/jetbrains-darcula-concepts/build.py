@@ -12,6 +12,11 @@ SVG = "http://www.w3.org/2000/svg"
 ET.register_namespace("", SVG)
 NAMES = ("zed-macos", "warp-macos", "zed-windows", "warp-windows")
 LABELS = ("Zed / macOS", "Warp / macOS", "Zed / Windows", "Warp / Windows")
+# Sizes at or below 32 px render from hand-simplified sources, not the masters.
+SMALL = ("zed-small-32", "warp-small-32", "zed-small-32", "warp-small-32")
+SMALL_16 = ("zed-small-16", "warp-small-32", "zed-small-16", "warp-small-32")
+PALETTE = ("#101014", "#A9B7C6", "#F8FAFC", "#6897BB", "#9876AA", "#CC7832")
+PAPER = "#16161A"
 
 
 def element(parent, tag, **attributes):
@@ -80,42 +85,42 @@ def comparison_sheet(masters):
     sheet = ET.Element(
         f"{{{SVG}}}svg", width="1536", height="1024", viewBox="0 0 1536 1024"
     )
-    element(sheet, "title").text = "Zed + Warp — JetBrains Darcula icon family"
-    element(sheet, "rect", width=1536, height=1024, fill="#2B2B2B")
+    element(sheet, "title").text = "Zed + Warp — Synth fork icon family"
+    element(sheet, "rect", width=1536, height=1024, fill=PAPER)
     text(sheet, 768, 99, "Zed + Warp", 76, "middle", "#D8E0EA")
     text(
-        sheet, 768, 146, "JetBrains Darcula · Editable vector icon family", 24, "middle"
+        sheet, 768, 146, "Synth fork icon family · flat plate, silver mark", 24, "middle"
     )
     for index, (master, label) in enumerate(zip(masters, LABELS)):
         x = 48 + index * 372
         insert_icon(sheet, master, x, 190, 324, f"hero-{index}-")
         text(sheet, x + 162, 551, label, 24, "middle")
-    element(sheet, "path", d="M 64 585 H 1472", stroke="#44474A", fill="none")
+    element(sheet, "path", d="M 64 585 H 1472", stroke="#2A2A32", fill="none")
     text(
         sheet,
         768,
         626,
-        "Small-size previews · 64 px and 32 px at native sheet size",
+        "Small-size previews · 32 px and 16 px from the simplified sources",
         22,
         "middle",
     )
-    for index, master in enumerate(masters):
+    smalls = [read_master(name) for name in SMALL]
+    smalls_16 = [read_master(name) for name in SMALL_16]
+    for index in range(len(masters)):
         x = 64 + index * 372
-        for size, offset in ((64, 80), (32, 184)):
+        for source, size, offset in ((smalls[index], 32, 80), (smalls_16[index], 16, 184)):
             insert_icon(
                 sheet,
-                master,
+                source,
                 x + offset,
                 650 + (64 - size),
                 size,
                 f"small-{index}-{size}-",
             )
             text(sheet, x + offset + size / 2, 744, str(size), 16, "middle")
-    element(sheet, "path", d="M 64 779 H 1472", stroke="#44474A", fill="none")
+    element(sheet, "path", d="M 64 779 H 1472", stroke="#2A2A32", fill="none")
     text(sheet, 64, 822, "Palette", 22)
-    for index, color in enumerate(
-        ("#2B2B2B", "#353637", "#A9B7C6", "#CC7832", "#9876AA", "#6897BB")
-    ):
+    for index, color in enumerate(PALETTE):
         x = 64 + index * 104
         element(
             sheet,
@@ -126,7 +131,7 @@ def comparison_sheet(masters):
             height=66,
             rx=10,
             fill=color,
-            stroke="#575C61",
+            stroke="#2A2A32",
         )
         text(sheet, x + 38, 945, color, 15, "middle")
     for label, x, start in (("Dock concept", 786, 0), ("Taskbar concept", 1170, 2)):
@@ -139,8 +144,8 @@ def comparison_sheet(masters):
             width=242,
             height=104,
             rx=20,
-            fill="#353637",
-            stroke="#44474A",
+            fill="#1E1E24",
+            stroke="#2A2A32",
         )
         for index in range(2):
             insert_icon(
@@ -155,7 +160,7 @@ def comparison_sheet(masters):
         sheet,
         1472,
         997,
-        "Vector sources · Badges removed · Native packaging pending",
+        "Vector sources · Rendered by script/apply_branding_icons.py",
         16,
         "end",
     )

@@ -1,41 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="title description">
-  <title id="title">Zed — Windows flat icon</title>
-  <desc id="description">Editable JetBrains Darcula artwork. Main glyph only, without a circular fork badge. All visible artwork is vector geometry.</desc>
-  <defs>
-    <linearGradient id="rim" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0" stop-color="#9876AA"/>
-      <stop offset="0.45" stop-color="#CC7832"/>
-      <stop offset="1" stop-color="#CC7832"/>
-    </linearGradient>
-    <linearGradient id="surface" x1="0" y1="0" x2="0.75" y2="1">
-      <stop stop-color="#44474A"/>
-      <stop offset="0.45" stop-color="#353637"/>
-      <stop offset="1" stop-color="#2B2B2B"/>
-    </linearGradient>
-    <linearGradient id="silver" x1="0" y1="0" x2="0.65" y2="1">
-      <stop stop-color="#F8FAFC"/>
-      <stop offset="0.45" stop-color="#C3CFDC"/>
-      <stop offset="1" stop-color="#A9B7C6"/>
-    </linearGradient>
-    <linearGradient id="bevel" x1="0" y1="0" x2="0" y2="1">
-      <stop stop-color="#FFFFFF" stop-opacity="0.52"/>
-      <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.08"/>
-      <stop offset="1" stop-color="#000000" stop-opacity="0.4"/>
-    </linearGradient>
-  </defs>
-  <g id="background">
-    <!-- Hide this group for transparency outside the icon. -->
-    <rect width="1024" height="1024" fill="#2B2B2B"/>
-  </g>
+  <title id="title">Zed — Windows icon</title>
+  <desc id="description">Synth fork icon family. Flat near-black plate, silver glyph, transparent surround. All visible artwork is vector geometry.</desc>
   <g id="foundation">
-    <rect x="64" y="64" width="896" height="896" rx="184" fill="#2B2B2B"/>
+    <rect x="64" y="64" width="896" height="896" rx="184" fill="#101014"/>
   </g>
-  <g id="accent-rim">
-    <rect x="68" y="68" width="888" height="888" rx="180" fill="none" stroke="url(#rim)" stroke-width="14"/>
-
-  </g>
-
   <g id="glyph" fill="#A9B7C6">
       <path d="M 240,220 H 786 L 746,264 H 272 Q 264,264 264,272 V 621 L 220,665 V 244 Q 220,220 240,220 Z"/>
       <path d="M 322,310 H 698 L 658,354 H 358 Q 350,354 350,362 V 540 L 306,584 V 332 Q 306,310 322,310 Z"/>
