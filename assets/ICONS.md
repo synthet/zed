@@ -52,7 +52,9 @@ Paths are under `crates/zed/resources/`. Wired from `crates/zed/Cargo.toml` (`pa
 | `images/zed_logo.svg` | <span style="display:inline-block;background:#fff;padding:8px;border-radius:4px"><img src="images/zed_logo.svg" alt="zed_logo" width="64"></span> |
 | `images/zed_x_copilot.svg` | <span style="display:inline-block;background:#fff;padding:8px;border-radius:4px"><img src="images/zed_x_copilot.svg" alt="zed_x_copilot" width="64"></span> |
 
-`images/zed_logo.svg` is the in-product Z mark (96×96), not the OS app icon.
+`images/zed_logo.svg` is the Zed logomark from https://zed.dev/brand (96×96). It is both the
+in-product mark and the glyph the OS app icons are built from — the branding masters place this
+exact path on the Synth plate rather than redrawing it.
 
 ## UI icons
 
