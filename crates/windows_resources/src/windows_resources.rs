@@ -50,6 +50,8 @@ pub fn compile(manifest: bool) -> Result<(), Box<dyn std::error::Error>> {
         _ => ("app-icon-dev.ico", "Zed Dev"),
     };
     let icon = std::path::PathBuf::from(ICON_DIR).join(icon_filename);
+    // Without this, regenerating the icon alone leaves the stale one embedded.
+    println!("cargo:rerun-if-changed={}", icon.to_string_lossy());
     let icon_escaped = icon.to_string_lossy().replace('\\', "\\\\");
 
     let manifest_line = if manifest {
