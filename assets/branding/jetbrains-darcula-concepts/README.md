@@ -38,19 +38,32 @@ plate and the mark stay identical across all four.
 | Zed | [SVG](zed-macos.svg) / [PNG](zed-macos.png) | [SVG](zed-windows.svg) / [PNG](zed-windows.png) |
 | Warp | [SVG](warp-macos.svg) / [PNG](warp-macos.png) | [SVG](warp-windows.svg) / [PNG](warp-windows.png) |
 
-Zed is the labyrinth Z; Warp is the two-panel mark. They stay distinguishable in
+Zed is a bracketed Z; Warp is the two-panel mark. They stay distinguishable in
 grayscale and at 16 px, so colour is never the differentiator.
+
+Both marks are tuned to the same visual weight, which is what makes them read as
+a set. The first cut of Zed was a five-ring labyrinth: its *total* ink matched
+Warp almost exactly (21.9% of the plate against 24.4%), but it spread that ink
+over five hairlines and looked far lighter and busier on the desktop. The measure
+that actually tracks the mismatch is horizontal glyph/plate transitions per
+scanline — 4.44 for the labyrinth against Warp's 1.56. Reducing it to two open
+brackets and one diagonal brings it to 2.29 at 23.5% ink, and the two finally
+look related. A five-ring labyrinth cannot be made to match two solid panels
+without ceasing to be a labyrinth; the brackets keep the frame-and-diagonal
+character at a weight that pairs.
+
+Both glyphs also sit in a comparable box — Zed at 240..784, Warp at 222..806 —
+so neither runs to the plate edge while the other has margin.
 
 ## Small-size variants
 
-The labyrinth's strokes are 0.69 px at 16 px — downscaling the master turns it
-into grey mush. Sizes at or below 32 px therefore render from hand-simplified
-sources with grid-snapped geometry:
+Sizes at or below 32 px render from hand-simplified sources with grid-snapped
+geometry, so bars land on whole pixels instead of straddling them:
 
 | Source | Used for | Reduction |
 | --- | --- | --- |
-| [zed-small-32.svg](zed-small-32.svg) | Zed 24 and 32 px | One bracket ring plus the diagonal |
-| [zed-small-16.svg](zed-small-16.svg) | Zed 16 px | Bold Z, bars on a 64-unit grid |
+| [zed-small-32.svg](zed-small-32.svg) | Zed 24 and 32 px | Same bracketed Z, bars widened to 96 units |
+| [zed-small-16.svg](zed-small-16.svg) | Zed 16 px | Brackets dropped, bold Z on a 64-unit grid |
 | [warp-small-32.svg](warp-small-32.svg) | Warp 16, 24 and 32 px | Same panels, inter-panel gap widened |
 
 `source_for()` in `script/apply_branding_icons.py` picks between them. Renders
