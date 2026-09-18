@@ -23,6 +23,8 @@ mod syntax_map;
 mod task_context;
 mod text_diff;
 mod toolchain;
+#[cfg(not(target_arch = "wasm32"))]
+mod wasmtime_c_api_keepalive;
 
 #[cfg(test)]
 pub mod buffer_tests;

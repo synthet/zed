@@ -113,10 +113,44 @@ function GenerateLicenses {
     . $PSScriptRoot/generate-licenses.ps1
 }
 
+function CheckUnresolvedPointers($exePath) {
+    # Link-time optimization can drop symbols only C code references, leaving
+    # pointer slots resolved to RVA 0 that crash on the first call.
+    $pythonCandidates = @(
+        @{ Command = "python3"; Arguments = @() },
+        @{ Command = "python"; Arguments = @() },
+        @{ Command = "py"; Arguments = @("-3") },
+        @{ Command = "uv"; Arguments = @("run", "--no-project", "python") }
+    )
+
+    foreach ($pythonCandidate in $pythonCandidates) {
+        $pythonCommand = Get-Command $pythonCandidate.Command -ErrorAction SilentlyContinue
+        if (-not $pythonCommand) {
+            continue
+        }
+
+        $pythonArguments = $pythonCandidate.Arguments
+        try {
+            & $pythonCommand.Source @pythonArguments --version *> $null
+        } catch {
+            continue
+        }
+
+        & $pythonCommand.Source @pythonArguments "$PSScriptRoot/check-unresolved-pointers.py" $exePath
+        if ($LASTEXITCODE -ne 0) {
+            throw "check-unresolved-pointers.py rejected $exePath (exit code $LASTEXITCODE); refusing to package it"
+        }
+        return
+    }
+
+    throw "Python is required to verify $exePath; install Python or uv, or run script/check-unresolved-pointers.py manually"
+}
+
 function BuildZedAndItsFriends {
     Write-Output "Building Zed and its friends, for channel: $channel"
     # Build zed.exe, cli.exe and auto_update_helper.exe
     cargo build --release --package zed --package cli --package auto_update_helper --target $target
+    CheckUnresolvedPointers ".\$CargoOutDir\zed.exe"
     Copy-Item -Path ".\$CargoOutDir\zed.exe" -Destination "$innoDir\Zed.exe" -Force
     Copy-Item -Path ".\$CargoOutDir\cli.exe" -Destination "$innoDir\cli.exe" -Force
     Copy-Item -Path ".\$CargoOutDir\auto_update_helper.exe" -Destination "$innoDir\auto_update_helper.exe" -Force
