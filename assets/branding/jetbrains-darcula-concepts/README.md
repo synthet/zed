@@ -38,22 +38,23 @@ plate and the mark stay identical across all four.
 | Zed | [SVG](zed-macos.svg) / [PNG](zed-macos.png) | [SVG](zed-windows.svg) / [PNG](zed-windows.png) |
 | Warp | [SVG](warp-macos.svg) / [PNG](warp-macos.png) | [SVG](warp-windows.svg) / [PNG](warp-windows.png) |
 
-Zed is a bracketed Z; Warp is the two-panel mark. They stay distinguishable in
+Zed is the Zed logomark; Warp is the two-panel mark. They stay distinguishable in
 grayscale and at 16 px, so colour is never the differentiator.
 
-Both marks are tuned to the same visual weight, which is what makes them read as
-a set. The first cut of Zed was a five-ring labyrinth: its *total* ink matched
-Warp almost exactly (21.9% of the plate against 24.4%), but it spread that ink
-over five hairlines and looked far lighter and busier on the desktop. The measure
-that actually tracks the mismatch is horizontal glyph/plate transitions per
-scanline — 4.44 for the labyrinth against Warp's 1.56. Reducing it to two open
-brackets and one diagonal brings it to 2.29 at 23.5% ink, and the two finally
-look related. A five-ring labyrinth cannot be made to match two solid panels
-without ceasing to be a labyrinth; the brackets keep the frame-and-diagonal
-character at a weight that pairs.
+Zed's glyph is the published mark from https://zed.dev/brand, taken verbatim as
+vector geometry from [`assets/images/zed_logo.svg`](../../images/zed_logo.svg) in
+this checkout and placed with `transform="translate(240,240) scale(5.6666666667)"`,
+which maps its 96-unit box onto 240..784. The path is not redrawn, so the mark
+stays exact; only the plate under it is ours. Warp sits at 222..806, so neither
+glyph runs to the plate edge while the other has margin.
 
-Both glyphs also sit in a comparable box — Zed at 240..784, Warp at 222..806 —
-so neither runs to the plate edge while the other has margin.
+The two are *not* weight-matched, and that is a deliberate trade. Measured at
+256 px over the plate (alpha ≥ 128, glyph = R > 90), the Zed mark is 17.5% ink at
+6.69 horizontal glyph/plate transitions per scanline against Warp's 24.2% and
+3.33 — lighter and far busier. An earlier cut replaced it with two open brackets
+and one diagonal to close that gap (23.6% / 3.76, which does pair with Warp), but
+that shape is not the Zed mark. Fidelity to the published mark wins; the plate,
+palette and geometry box are what hold the family together.
 
 ## Small-size variants
 
@@ -62,8 +63,8 @@ geometry, so bars land on whole pixels instead of straddling them:
 
 | Source | Used for | Reduction |
 | --- | --- | --- |
-| [zed-small-32.svg](zed-small-32.svg) | Zed 24 and 32 px | Same bracketed Z, bars widened to 96 units |
-| [zed-small-16.svg](zed-small-16.svg) | Zed 16 px | Brackets dropped, bold Z on a 64-unit grid |
+| [zed-small-32.svg](zed-small-32.svg) | Zed 24 and 32 px | Outer ring and diagonal only, bars widened to 96 units |
+| [zed-small-16.svg](zed-small-16.svg) | Zed 16 px | Ring dropped, bold Z on a 64-unit grid |
 | [warp-small-32.svg](warp-small-32.svg) | Warp 16, 24 and 32 px | Same panels, inter-panel gap widened |
 
 `source_for()` in `script/apply_branding_icons.py` picks between them. Renders
