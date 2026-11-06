@@ -82,3 +82,8 @@ node_modules/
 dist/
 graphify-out/
 Thumbs.db
+/.docs/_local/
+/.agent/local/
+/.cursor/mcp.json
+/.claude/settings.local.json
+/.agents/mcp_config.json

@@ -99,3 +99,5 @@ Start with [`docs/CANONICAL_SOURCES.md`](docs/CANONICAL_SOURCES.md). Product doc
 - [`docs/ai-workflow/README.md`](docs/ai-workflow/README.md) — agent asset map + SDLC loop
 - [`.agent/SAFETY.md`](.agent/SAFETY.md) — safety & hygiene rules
 - [`.agent/AGENT_INFRA_INVENTORY.md`](.agent/AGENT_INFRA_INVENTORY.md) — full agent-infra inventory
+
+@AGENTS.md

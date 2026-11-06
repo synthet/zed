@@ -45,7 +45,7 @@ See [`.agent/SAFETY.md`](.agent/SAFETY.md) and [`docs/ai-workflow/README.md`](do
 
 | Date | Symptom | Root cause | Fix / guard |
 |------|---------|------------|-------------|
-| _(none yet)_ | | | |
+| 2026-08-19 | Windows taskbar icon rendered as a muddy low-resolution tile | The ICO writer saved from its 16 px frame, so Pillow emitted no larger frames; Pillow's multi-size writer also PNG-compresses small entries that Inno Setup expects as BMP32 | Generate from the full-resolution image, store sub-256 entries as BMP32 and 256 as PNG, then verify sizes and encodings |
 
 ## Backlog
 
@@ -126,3 +126,25 @@ traps only. Crate-specific rules belong in that crate's own `.rules` file.
 Product docs are mdBook under [`docs/src/`](docs/src/). Automation rules:
 [`docs/AGENTS.md`](docs/AGENTS.md). Agent authority map:
 [`docs/CANONICAL_SOURCES.md`](docs/CANONICAL_SOURCES.md).
+
+<!-- BEGIN FRAMEWORK SETUP -->
+
+## Shared agent setup
+
+Project-specific instructions in this file and nested instruction files govern this workspace.
+Reusable skills are authored in `.claude/skills/`; other harness trees are generated.
+Run installed helpers relative to their skill directory; run project checks from this workspace.
+Preserve user edits, credentials, model settings, permissions and unrelated configuration.
+- Build: `cargo build`
+- Test: `cargo nextest run`
+- Lint: `./script/clippy`
+
+Installed library: 46 applicable skills. Synchronize explicitly; startup hooks never install updates.
+<!-- END FRAMEWORK SETUP -->
+
+<!-- FRAMEWORK RULE REFERENCES -->
+Read the always-on project rules before working:
+- `.claude/rules/karpathy-coding.md`
+- `.claude/rules/safety-and-secrets.md`
+- `.claude/rules/sdlc-core.md`
+<!-- END FRAMEWORK RULE REFERENCES -->

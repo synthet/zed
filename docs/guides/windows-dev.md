@@ -60,3 +60,62 @@ Incremental cache under `target/debug/incremental` is enough to resume after a k
 Debug binary: `target/debug/zed.exe`. Linker `LNK4217` and garbled “creating library” lines on a non-Latin Windows locale are warnings.
 
 App ids: `SynthZed-Editor-*`. General cargo/clippy/nextest: [local-build.md](local-build.md).
+
+## Release-channel builds
+
+Two separate variables drive the channel. Setting only one yields a half-branded binary that
+passes a casual look and is wrong where it matters. `script/bundle-windows.ps1` sets both from
+`crates/zed/RELEASE_CHANNEL` (`dev` in this checkout); a hand-rolled `cargo build` must set both
+itself.
+
+| Variable | Read by | Controls |
+|----------|---------|----------|
+| `ZED_RELEASE_CHANNEL` | [`crates/release_channel/build.rs`](../../crates/release_channel/build.rs) | Runtime channel: the `starting zed version ...` log line, app id, update behaviour |
+| `RELEASE_CHANNEL` | [`crates/windows_resources/src/windows_resources.rs`](../../crates/windows_resources/src/windows_resources.rs) | Embedded `ProductName` / `ProductVersion`, and which `app-icon*.ico` is linked in |
+
+```powershell
+$env:ZED_RELEASE_CHANNEL = 'stable'
+$env:RELEASE_CHANNEL     = 'stable'
+cargo build --release --package zed --target x86_64-pc-windows-msvc
+```
+
+`windows_resources` reads its copy with `option_env!`, baked in when *that crate* compiles and not
+part of Cargo's fingerprint. Changing the variable alone leaves the previous channel's product name
+and icon embedded. Force the rebuild:
+
+```powershell
+(Get-Item crates/windows_resources/src/windows_resources.rs).LastWriteTime = Get-Date
+```
+
+Check both halves agree before installing an EXE - the resource and the runtime are set by
+different variables and can disagree:
+
+```powershell
+(Get-Item target/x86_64-pc-windows-msvc/release/zed.exe).VersionInfo |
+    Select-Object ProductName, ProductVersion
+```
+
+The commit SHA in that string comes from `git rev-parse HEAD` at build time, so a dirty working
+tree produces a binary stamped with a revision that does not contain its own changes. Commit first
+if the stamp needs to mean anything later.
+
+## Unresolved pointer slots
+
+[`script/check-unresolved-pointers.py`](../../script/check-unresolved-pointers.py) walks every
+DIR64 base relocation and fails if a slot holds the image base - a symbol the linker bound to
+RVA 0. Calling through one dies with `0xc0000005` at the image base.
+`bundle-windows.ps1` runs it before copying the EXE and throws on a nonzero exit.
+
+```powershell
+python script/check-unresolved-pointers.py target/x86_64-pc-windows-msvc/release/zed.exe
+```
+
+This caught the 1.17.0 stable startup crash. `lto = "thin"` internalized the `wasmtime-c-api-impl`
+definitions, which nothing in the Rust graph references - only tree-sitter's C objects do, and `cc`
+compiles those outside the LTO unit - so 48 `__imp_wasm*` references bound to RVA 0.
+`with_parser` builds a `WasmStore` for every parser, so the first file parsed crashed the process.
+Fixed by [`crates/language/src/wasmtime_c_api_keepalive.rs`](../../crates/language/src/wasmtime_c_api_keepalive.rs).
+
+The 48 `LNK4217` warnings that fix emits are the good signal, not noise: they mean the definitions
+survived LTO and tree-sitter's `__imp_` references bound to them. Zero slots and no LNK4217 at all
+would mean the keepalive static was dropped again.
